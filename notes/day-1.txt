@@ -53,6 +53,76 @@ why main method is static?
 	main method is not called/invoked by you explicitly. when the byte code of main method is converted to machine level code, the JRE will automatically/implicitly invoke the main method from your class. In that case to avoid object creation of Program class, we declare the method as static.
 
 
+data types in Java:
+	primitive types: 
+		boolean, 
+		char, 
+		byte, short, int , long, 
+		float and double
+	non-primitive types:
+		built-in: Array, String etc.
+		user-defined: class, interface etc.
+
+operators in Java:
+	involvement of number of operands:
+		i. unary ii. binary iii. ternary
+
+		int a =0; int b = 20;		?:
+		a++; ++a; int res = a+b; int res = a > b ? a : b;
+		a--; --a;
+
+	types of work/job:
+		a. arithmetic: +, /, -, *, %
+		b. relational: 
+			comparison: >, <, >=, <=, instanceof
+			equality: ==, !=
+		c. logical: &&, ||
+		d. shift operator: <<, >> , >>>
+		e. Bitwise: & (bitwose AND), ^ (bitwise exclusive OR), | (bitwise inclusive OR)
+		e. assignment: =, +=, -=, *=, /=, %=, ^=, |=, <<=, >>=, >>>=
+		f. incremental and decremental: ++, --
+
+control flow statements in Java:
+	if(condition){}
+	else {}
+
+	int a =10;
+	int b = 20;
+	int c = 30;
+	if(a>b){
+		if(a>c){
+		}
+		else{
+		}
+	}else if(b>c){
+		
+	}
+
+	int choice = 1;
+	//if(choice==1){} else if(choic==2){}
+	switch(choice){
+		case 1:
+			break;
+
+		case 2:
+			break;
+
+		default:
+			break;
+	}
+
+	int x = 5;
+	while(x >=0){
+		//code
+		x--;
+	}
+
+	do{
+		//code
+		x--;
+	}while(x>=0);
+
+
 
 
 

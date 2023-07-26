@@ -11,7 +11,7 @@ public class Program {
 		
 		//display();
 		Program p = new Program();
-		p.display();		
+		p.display();
 	}
 	static void print() {
 		System.out.println("Hello world");
