@@ -1,0 +1,33 @@
+what is java?
+	- a programming language as well as a platform
+	- OOP language
+	- high level language
+	- Sun microsystem invented Java in 1995
+	- James Gosling and his team (Greenteam)
+	- initial name was Oak
+
+Platform: a h/w or s/w environment where a program/an application is developed, compiled and run. In order to run a Java application, since we use a runtime, known as JRE (Java Runtime Environment) and APIs, it is called a platform.
+
+Different types of Application created using Java:
+a. web applications
+b. mobile applications
+c. desktop applications
+d. enterprise applications
+e. embeded applications
+f. Gaming applications
+g. Robotics
+etc. 
+
+Categroies of Application created using Java:
+a. Standalone application
+b. Web Application
+c. Enterprise application
+d. Mobile applications
+
+Java Platforms/Editions:
+1. Java SE: for core Java applications and provides features and APIs to create multithreaded application, application to fetch data from file, netwroking etc.
+2. Java EE: for web and enterprise applications. built at the top of SE of Java. [JSP-Servlet, Web Services (JAX-WS), EJB (Enterprose Java Beans), JPA (Java Persistant API) etc.]
+3. Java ME: for mobile applications
+4. Java FX: for creating RIA (rich internet applications). provoide4s APIs to create UI based applications.
+
+	
