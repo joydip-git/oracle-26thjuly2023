@@ -1,6 +1,7 @@
 package com.java.helloworld.ui;
 
 //import java.io.PrintStream;
+import java.util.Scanner;
 
 public class Program {
 	public static void main(String[] args) {
@@ -12,6 +13,12 @@ public class Program {
 		//display();
 		Program p = new Program();
 		p.display();
+		
+		Scanner scanner = new Scanner(System.in);
+		System.out.print("enter value: ");
+		int val = scanner.nextInt();		
+		scanner.close();
+		System.out.println(val);
 	}
 	static void print() {
 		System.out.println("Hello world");

@@ -1,0 +1,8 @@
+1. create a Java application for calculation
+	the class with main method must have another 4 static methods:
+	add, subtract, multiply and divide => these methods can add, multiply, suntract or divide any two integer type values and return the resultant value
+	arguments: all accepts two argument of type int
+	return type: return type of all of them is int
+
+	call these methods from main method
+	Note: accept the two values from console and them pass to the methods as parameters
