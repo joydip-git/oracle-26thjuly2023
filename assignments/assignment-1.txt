@@ -4,5 +4,6 @@
 	arguments: all accepts two argument of type int
 	return type: return type of all of them is int
 
-	call these methods from main method
-	Note: accept the two values from console and them pass to the methods as parameters
+	call these methods from main method based on a choice from user
+	
+	Note: accept the choice as well two values from console and them pass to the methods as parameters. also print a menu for user, so that user can make a choice.
