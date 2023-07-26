@@ -123,6 +123,35 @@ control flow statements in Java:
 	}while(x>=0);
 
 
+packages:
+	way of segregating different types as well as grouping similar types
+
+com.java.app-name.dataaccess
+	SqlDataAcces
+	OracleDataAccess
+
+com.java.app-name.drawing
+	Rectangle
+	Circle
+
+com.java.app-name.file
+	TextFileReader
+	XMLFileReader
+
+import com.java.app-name.dataaccess.SqlDataAccess;
+main(){
+	
+}
+
+
+Array: collection of homogeneous (similar type) elements
+
+classroom => array object
+you guys => elements
+
+
+
+
 
 
 
