@@ -8,6 +8,8 @@ what is java?
 
 Platform: a h/w or s/w environment where a program/an application is developed, compiled and run. In order to run a Java application, since we use a runtime, known as JRE (Java Runtime Environment) and APIs, it is called a platform.
 
+JVM: Java Virtual Machine. when you run a java application JRE is the runtime environment which creates an JVM instance and that JVM does rest of the task, ex: loading class file in JRE, converting byte code into MLC using JIT, starting the execution from main method etc.
+
 Different types of Application created using Java:
 a. web applications
 b. mobile applications
@@ -29,5 +31,31 @@ Java Platforms/Editions:
 2. Java EE: for web and enterprise applications. built at the top of SE of Java. [JSP-Servlet, Web Services (JAX-WS), EJB (Enterprose Java Beans), JPA (Java Persistant API) etc.]
 3. Java ME: for mobile applications
 4. Java FX: for creating RIA (rich internet applications). provoide4s APIs to create UI based applications.
+
+Naming convention:
+	class name must use pascal casing: first letter or every word in multi-word name, must be in upper case
+	class EmployeeInfo{} or class Program{}
+	class name inside a file and the file name should be same
+	Program.java => Program
+
+	method names must follow camel-casing:m in a mutli-word or single word function name, the first letter of first word must be in lowercase and first letter of every other word must be in uppercase
+	ex: add(), addNumbers()
+
+	local variable in a method should also follow camnel casing.
+
+static: if a member of a class is declared static, then in order to access that member, you do not need to create an instance of that class. You can access that member using class name.
+	Program.print() [from outside the class as well as from inside the class]
+	print(); [from inside the class]
+
+	a static member can access only another static member
+
+why main method is static?
+	main method is not called/invoked by you explicitly. when the byte code of main method is converted to machine level code, the JRE will automatically/implicitly invoke the main method from your class. In that case to avoid object creation of Program class, we declare the method as static.
+
+
+
+
+
+	
 
 	
