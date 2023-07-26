@@ -5,5 +5,7 @@
 	return type: return type of all of them is int
 
 	call these methods from main method based on a choice from user
+
+	the application should continue running untill and unless and user wants to terminate it by entering some choice
 	
 	Note: accept the choice as well two values from console and them pass to the methods as parameters. also print a menu for user, so that user can make a choice.
