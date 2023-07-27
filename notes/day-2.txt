@@ -45,8 +45,7 @@ creta.stop();
 
 constructor:
 	a special method inside class with name same as that of the class name
-	no explicit return type
-	they do not return anything with return statement
+	no explicit return type, as they do not return anything with return statement
 	they are invoked in order to initialize data members of the class
 		- default (or parameterless) constructor assigns default values to the data members
 		- parameterized constructor(s) assigns user values to the data members
@@ -55,13 +54,32 @@ constructor:
 stack memory area: local variables of main and other methods
 heap memory area: object memory allocation
 
-int x= 100;
+int x = 100;
 int* a = &x;
 a++;
 
 Car c = null;
 c = new Car();
 c++;//not possible
+
+pointer vs reference:
+pointer variable stores raw memory address
+reference variable does store reference to the instance in the heap
+
+you can do pointer arithmetic but not reference arithmetic
+references can be used just to access the object region in the heap. the address/reference is subject to updation if the object is moved from one place in heap to another. but the updation happens behind the scence.
+
+
+access specifiers for class: public (and private)
+access specifiers for class members: public and private and protected
+
+
+primitive type:
+value type variable:a variable which stores value directly in the memory block
+
+non-primitive type:
+reference type variable: a variable which stores reference to an object/instance in the memory block. The object memory allocation is in the heap.
+
 
 
 
