@@ -37,3 +37,12 @@ Note:
 *: the class containing main method and the classes for employee types should be present in different packages in the application
 **: every data member must have getter and setter.
 ***: the class must have default and parameterized constructor
+
+solid: o => open close principle
+
+dynamic polymorphism:
+	a method in base class and you are re-implementing the same in the child class (not changing the signature, but the implmentation/code) => function/method overriding (NOT over-writing)=> base method gets suppressed by the child method (from child method you can call the base method using super keyword)
+	because the same method is used in the base as well as in the child, but both are having different code, that's why it is polymorphism.
+	during RUNTIME whichever object has been created the method of that class object will be invoked, NOT the base class method. Hence, it is dynamic polymorphism.
+
+	

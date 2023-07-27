@@ -1,0 +1,11 @@
+1. object class and its members
+2. static polymorphism
+3. abstract class
+4. interface
+5. has-a relationship between entities
+6. string class and its methods
+
+7. exception handling
+8. generic types (classes, methods, interfaces etc.)
+9. collections
+

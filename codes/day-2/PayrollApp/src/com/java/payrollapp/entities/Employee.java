@@ -1,5 +1,6 @@
 package com.java.payrollapp.entities;
 
+//employee extends Object
 public class Employee {
 
 	private String name;
