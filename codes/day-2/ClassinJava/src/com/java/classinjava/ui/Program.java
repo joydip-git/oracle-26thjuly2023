@@ -12,10 +12,10 @@ public class Program {
 		// Car creta = null;
 		// creta = new Car(null, "grey", "Creta", "Hyundai", "automatic", 5, 6, 2022);
 		Car creta = new Car("axhp124445", "grey", "Creta", "Hyundai", "automatic", 5, 6, 2022);
-		/*Car creta = new Car();
-		creta.setChasisNumber(chasisNumber);*/
-		//creta.setChasisNumber("axhp124445");
-		
+		// Car creta = new Car();
+		/* creta.setChasisNumber(chasisNumber); */
+		// creta.setChasisNumber("axhp124445");
+
 		System.out.println(creta.getChasisNumber());
 		System.out.println(creta.getInfo());
 	}

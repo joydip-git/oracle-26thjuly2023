@@ -1,69 +1,34 @@
 package com.java.classinjava.entities;
 
-public class Car {
-	// private attributes
-	private String chasisNumber;
-	private String bodyColor;
-	private String companyName;
-	private String modelName;
-	private String modeOfTransmission;
+public class Car extends LightMotorVehicle {
 
-	private int noOfGears;
+	private String modeOfTransmission;
 	private int seatingCapacity;
-	private int makeYear;
 
 	// constructor: default
 	public Car() {
+		super();
+		//super(null, null, null, null, 0, 0);
+		System.out.println("Car default ctor");
 	}
 
 	// constructor: parameterized constructor
 	public Car(String chasisNumber, String bodyColor, String companyName, String modelName, String modeOfTransmission,
 			int noOfGears, int seatingCapacity, int makeYear) {
-		super();
-		this.chasisNumber = chasisNumber;
-		this.bodyColor = bodyColor;
-		this.companyName = companyName;
-		this.modelName = modelName;
-		this.modeOfTransmission = modeOfTransmission;
-		this.noOfGears = noOfGears;
+		/*
+		 * this.chasisNumber = chasisNumber; this.bodyColor = bodyColor;
+		 * this.companyName = companyName; this.modelName = modelName; this.makeYear =
+		 * makeYear; this.noOfGears = noOfGears;
+		 */
+		super(chasisNumber, bodyColor, companyName, modelName, noOfGears, makeYear);
+		
 		this.seatingCapacity = seatingCapacity;
-		this.makeYear = makeYear;
+		this.modeOfTransmission = modeOfTransmission;
+		
+		System.out.println("Car parameterized ctor");
 	}
 
-	//getters and setters
-	
-	public String getChasisNumber() {
-		return chasisNumber;
-	}
-
-	public void setChasisNumber(String chasisNumber) {
-		this.chasisNumber = chasisNumber;
-	}
-
-	public String getBodyColor() {
-		return bodyColor;
-	}
-
-	public void setBodyColor(String bodyColor) {
-		this.bodyColor = bodyColor;
-	}
-
-	public String getCompanyName() {
-		return companyName;
-	}
-
-	public void setCompanyName(String companyName) {
-		this.companyName = companyName;
-	}
-
-	public String getModelName() {
-		return modelName;
-	}
-
-	public void setModelName(String modelName) {
-		this.modelName = modelName;
-	}
-
+	// getters and setters
 	public String getModeOfTransmission() {
 		return modeOfTransmission;
 	}
@@ -72,46 +37,11 @@ public class Car {
 		this.modeOfTransmission = modeOfTransmission;
 	}
 
-	public int getNoOfGears() {
-		return noOfGears;
-	}
-
-	public void setNoOfGears(int noOfGears) {
-		this.noOfGears = noOfGears;
-	}
-
 	public int getSeatingCapacity() {
 		return seatingCapacity;
 	}
 
 	public void setSeatingCapacity(int seatingCapacity) {
 		this.seatingCapacity = seatingCapacity;
-	}
-
-	public int getMakeYear() {
-		return makeYear;
-	}
-
-	public void setMakeYear(int makeYear) {
-		this.makeYear = makeYear;
-	}
-
-	// methods
-	public String getInfo() {
-		return modelName + ", " + bodyColor + ", " + seatingCapacity + ", " + noOfGears;
-	}
-
-	public String start() {
-		return "Car started";
-	}
-
-	public String stop() {
-		return "Car started";
-	}
-
-	public void applyBreak() {
-	}
-
-	public void acclerate() {
 	}
 }

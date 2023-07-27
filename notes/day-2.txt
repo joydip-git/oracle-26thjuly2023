@@ -46,10 +46,11 @@ creta.stop();
 constructor:
 	a special method inside class with name same as that of the class name
 	no explicit return type, as they do not return anything with return statement
-	they are invoked in order to initialize data members of the class
+	they are invoked in order to initialize data members of that class and that class ONLY
 		- default (or parameterless) constructor assigns default values to the data members
 		- parameterized constructor(s) assigns user values to the data members
 	constructor(s) is/are called/invoked during object creation, not after the object creation
+	Note: constructor IS NOT RESPONSIBLE for creating object, it just initializes data members of the class
 
 stack memory area: local variables of main and other methods
 heap memory area: object memory allocation
@@ -81,7 +82,49 @@ non-primitive type:
 reference type variable: a variable which stores reference to an object/instance in the memory block. The object memory allocation is in the heap.
 
 
+inheritance:
+when any of the child class constructor is invoked, always base class's default constructor gets invoked
+But, you can invoke parameterized constructor(s) of the base class from the child class constructor explicitlty, using "super" keyword
 
+Note: single and multi-level inheritances are supported in Java, NOT multiple inheritance
+class A {
+	public void foo(){}
+}
+class C extends A {
+	//public void foo(){}
+	public void fooC(){}
+}
+class B extends A{
+	//public void foo(){}
+	public void fooB(){}
+}
+
+C objC = null;
+objC = new C();
+objC.foo();
+objC.fooC();
+
+B objB = new B();
+objB.foo();
+objB.fooB();
+
+//a reference variable of base class, can store reference of its any  child class instance/object
+=> up-casting (implicit conversion)
+A obj1 = new B()/new C();
+obj1.foo();
+
+//down-casting: assigning a reference variable of child class with a reference  as stored in a reference variable of base type (explicit conversion)
+C obj2 = null;
+obj2 = (C)obj1;
+
+
+//implicit conversion
+int x = 1234;
+long l = x;
+
+//explicit conversion
+long l = 12345678901; //1010101011010101111
+int x = (int)l;
 
 
 
