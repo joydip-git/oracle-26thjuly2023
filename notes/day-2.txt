@@ -1,0 +1,79 @@
+OOP in Java:
+
+class and object
+how to create class in Java
+members of class
+access specifiers
+constructor in Java
+writing method in class
+getter and setter
+
+class: blueprint for object(s)
+
+maurti wagonr
+hyundai creta
+....
+
+chasis_number, body_color, no_of_gears, mode_of_tranmission, seating_capacity, make_year, company_name, model_name etc.
+start, stop, break, accelrate etc.
+
+class Car{
+	String chasisNumber;
+	String bodyColor;
+	int noOfGears;
+	String modeOfTransmission;
+	int seatingCapacity;
+	short makeYear;
+	String companyName;
+	String modelName;
+
+	start(){}
+	stop(){}
+	applyBreak(){}
+	acclerate(){}
+}
+
+Car creta = new Car();
+creta.chasisNumber="ahxp1234";
+creta.modelName = "Creta";
+creta.noOfGears = 5;
+....................
+
+creta.start();
+creta.stop();
+......
+
+constructor:
+	a special method inside class with name same as that of the class name
+	no explicit return type
+	they do not return anything with return statement
+	they are invoked in order to initialize data members of the class
+		- default (or parameterless) constructor assigns default values to the data members
+		- parameterized constructor(s) assigns user values to the data members
+	constructor(s) is/are called/invoked during object creation, not after the object creation
+
+stack memory area: local variables of main and other methods
+heap memory area: object memory allocation
+
+int x= 100;
+int* a = &x;
+a++;
+
+Car c = null;
+c = new Car();
+c++;//not possible
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
