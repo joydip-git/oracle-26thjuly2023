@@ -17,3 +17,14 @@ Note:
 *: the class containing main method and the class for employee should be present in different packages in the application
 **: every data member must have getter and setter.
 ***: the class must have default and parameterized constructor
+
+
+array object storing:
+	value type data (primitive)
+	reference type data (non-primitive)
+
+A[] arr = new A[2];
+arr[0] = new A();
+arr[1] = new A();
+
+int[] arr = new int[2];
