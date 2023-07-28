@@ -137,6 +137,11 @@ class B extends A{
 
 B obj = new B("harsh", 1, "Java");
 
+String:
+	bool equals(String other){
+	}
+if(str1.equals(str2))
+
 
 
 
