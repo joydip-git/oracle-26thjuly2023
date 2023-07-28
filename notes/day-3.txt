@@ -142,6 +142,36 @@ String:
 	}
 if(str1.equals(str2))
 
+Interface:
+	- pure abstract class
+	- no data members except final data members
+	- abstract methods (regular methods, getters and setters)
+	- interface members are by default - abstract and public (DON'T USE ACCESS SPCIFIER OR MODIFIRE WITH THEM)
+	- you can't write any constructor explicitly
+	- you can't create an instance of Interface
+	- if you implement this interface in a class, that class must implement all the abstract members, otherwise that class will be (has to be) declared with abstract keyword
+	- interfaces act like contracts: they provide information about which methods are implemented in a class
+
+class A { public void foo(){} public void fooA(){}}
+class B { public void foo(){} public void fooB(){}}
+class C: public A, public B { public void fooC(){}}
+
+C objC = new C();
+c.foo();
+
+interface IA { void foo(); void fooA(); }
+interface IB { void foo(); void fooB();}
+class C implements IA, IB { 
+	public void foo(){}
+	public void fooA(){}
+	public void fooB(){}
+	public void fooC(){}
+}
+
+C objC = new C();
+c.foo();
+
+
 
 
 

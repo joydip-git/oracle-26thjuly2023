@@ -1,0 +1,17 @@
+create a Java application which calculates area of different shapes
+
+Circle:
+	attributes: radius
+	functionality: calculates the area of the circle and returns the calculated area
+
+Triangle:
+	attributes: base, height
+	functionality: calculates the area of the triangle and returns the calculated area
+
+1. create classes for those two types in a separate package
+2. they must have default and parameterized constructors, data members, getters and setters and functionalities
+3. in main method of another class in different package, create objects of these two types
+	a. print menu for user so that user can choose which type of shape object to be created
+	b. based on the choice you create that type of object	
+	d. calculate the area of the shape by calling the method and print the return value
+
