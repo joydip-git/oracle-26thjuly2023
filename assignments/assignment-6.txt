@@ -4,8 +4,48 @@ create a Java application which will help user to
 	c. fetch all products
 	d. fetch a product by id
 
-from a collection of product objects
+details of product:
+	attributes: id, name, price, description
+	- should create default and parameterized constructor
+	- should have getters and setters for all attributes
+	- should override Object class's methods: "equals()" and "toString()"
 
-product:
-	id, name, price, description
+architecture:
+	1. source of data:
+		the application should use some type of collection class (NOT ARRAY) in order to store objects of product class 
+		note: this collection will not be written inside main method, rather you should create a  class (repository) which will have that collection as data member and a getter (no setter) to return the collection object from the class
+
+	2. data access layer:
+		the application should have a class with following methods to interact with the collection from repository class
+		
+		- method to return all records from the repository class
+			- return type: collection of product objects
+			- argument: none
+
+		- method to retun a particular product searched by id
+			- return type: single product object
+			- argument: product id
+			note: if the product is not found, NULL should be returned
+
+		- method to delete a particular product by id
+			- return type: boolean (true indicating success and false indicating failure)
+			- argument: product id
+			note: if the product is not found, false should be returned
+
+		- method to update a particular product by id
+			- return type: boolean (true indicating success and false indicating failure)
+			- argument: product id and a product object with updated data
+			note: if the product is not found, false should be returned
+
+		- method to adda a new product
+			- return type: boolean (true indicating success and false indicating failure)
+			- argument: product object
+			note: if the product with same id exists, product should not be added and false should be returned
+		
+	3. User Interface layer:
+		from main method you have to call the methods of data access layer
+
+	use your imagination about how user should be able to add new record, delete/update an existing record as well as get all the records in order to display or get single record in order to display
+	ask user for choices and based on choices you should call the methods
+	note: any utility method, such as printing menu, asking for user choice etc. shoul;d be kept in a separate class as public static methods and be used from main method
 
