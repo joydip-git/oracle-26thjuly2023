@@ -9,3 +9,87 @@
 8. generic types (classes, methods, interfaces etc.)
 9. collections
 
+Polymorphism:
+	multiple forms of
+		a. operators
+		b. methods
+
+	types: compile time (static) and runtime (dynmaic)
+	
+	compile time:
+		1. operator overloading:
+		example: +
+
+		
+
+		SC => (compiler) => byte code => MLC and executed
+
+		main(){
+			add(10,20) //2 => calling part
+			int a = 10;
+			int b = 20;
+			int res = a + b;
+
+			String fname = "anil";
+			String lname = "Kumar";
+			String fullName = fname + lname; //fname.concat(lname);
+		}
+		add(int a, int b){}//4 => called function
+
+		2. method overloading:
+			a. number of arguments
+			b. data type of arguments
+			c. position of arguments
+		note: return type does not act as a differentiation technique
+		class Addition{
+			public void add(int a, int b){}
+			public void add(int a, int b, int c){}
+			public void add(int a, int b, float f){}
+			public void add(int a, float f,int b){}
+		}
+		main(){
+			Addition addition = new Addiotion();
+			addition.add(12,13); //1
+			addition.add(12,13, 14);//2
+			addition.add(12,13.45f, 14);//4
+			addition.add(12,13, 14.45f);//3
+		}
+
+		dynamic:
+		method overriding
+
+		class Animal { public void makeSound(){}}
+		class Bird {public void makeSound(){}}
+		class Cat {public void makeSound(){}}
+
+		main(){
+			Animal animal = null;
+			switch(choice){
+				case 1: 
+					animal = new Bird();
+				break;
+				case 2: 
+					animal = new Cat();
+				break;
+				default:
+				break;
+			}
+			if(animal !=null){
+				animal.makeSound();
+			}
+		}
+
+		differences between method overloading and method overriding:
+		1. method overaloding is a technique to achieve compile time polymorphism
+		whereas method overriding is a technique to achieve dynamic/run-time polymorphism
+
+		2. method overaloding takes place in single class. whereas method overriding invloves at leat two classes, one base and one child
+
+		3. overloaded methods should have difference in arguments, whereas the signature of all overriden methods must be same
+
+		4. the code in method overlading is not important in the compile time polymorphism, whereas sole idea behind methid overriding is to provide new implementation of the inherited base class method and dynamically invoke one the child method out of many or one child class. hence the code inside the overriden methods rae of utmost importance.
+
+
+
+
+		
