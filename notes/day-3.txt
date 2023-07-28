@@ -171,6 +171,16 @@ class C implements IA, IB {
 C objC = new C();
 c.foo();
 
+Generic Type Parameter:
+	T => Type
+	E => Element
+	K => Key
+	V => Value
+	N => Number
+? => wildcard element
+
+<? extends Number>
+<? super Integer>
 
 
 

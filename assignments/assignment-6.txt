@@ -1,0 +1,11 @@
+create a Java application which will help user to 
+	a. add new product
+	b. update/delete existing product
+	c. fetch all products
+	d. fetch a product by id
+
+from a collection of product objects
+
+product:
+	id, name, price, description
+
