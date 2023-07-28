@@ -15,14 +15,11 @@ Polymorphism:
 		b. methods
 
 	types: compile time (static) and runtime (dynmaic)
-	
+	SC => (compiler) => byte code => MLC and executed
+
 	compile time:
 		1. operator overloading:
 		example: +
-
-		
-
-		SC => (compiler) => byte code => MLC and executed
 
 		main(){
 			add(10,20) //2 => calling part
@@ -41,6 +38,7 @@ Polymorphism:
 			b. data type of arguments
 			c. position of arguments
 		note: return type does not act as a differentiation technique
+		
 		class Addition{
 			public void add(int a, int b){}
 			public void add(int a, int b, int c){}
@@ -88,6 +86,56 @@ Polymorphism:
 		3. overloaded methods should have difference in arguments, whereas the signature of all overriden methods must be same
 
 		4. the code in method overlading is not important in the compile time polymorphism, whereas sole idea behind methid overriding is to provide new implementation of the inherited base class method and dynamically invoke one the child method out of many or one child class. hence the code inside the overriden methods rae of utmost importance.
+
+
+Abstract class and abstract members:
+a class is an abstract class, when at least one method is abstract in that class
+in case of Java, declare the method with abstract keyword and simply don't provide any implementation
+also the class must be declared with abstract keyword
+you can have data member declaration, explicit constructors (default+parameterized), non-abstract methods, getters and setters
+
+You can't create an instance of abstract class
+when you inherit from the abstract base class, you MUST implement all abstract members of the base class in that child class. otherwise the child class in trun has to be declared with abstract keyword.
+
+//abstract
+abstract class A{
+	protected String name;
+	protected int id;
+
+	public A(){}
+
+	public A(String name, int id){ this.name = name; this.id = id;}
+
+	public String getName() { return name;}
+	public void setName(String value){name = value;}
+
+	public String getId() { return id;}
+	public void setId(int value){id = value;}
+
+	public abstract String getSubject();
+	public abstract void setSubject(String value);
+
+	public abstract String getInfo();
+}
+//A obj = new A();
+//concrete
+class B extends A{
+	String subject;
+
+	public B(){}
+	public B(String name, int id, String subject){ 
+		super(name,id);
+		this.subject = subject;
+	}
+
+	//abstract member implementation
+	public String getSubject(){return subject;}
+	public void setSubject(String value){subject = value;}
+
+	public String getInfo(){ return name+" "+id+" "+subject;}
+}
+
+B obj = new B("harsh", 1, "Java");
 
 
 

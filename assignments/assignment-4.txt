@@ -1,0 +1,24 @@
+create a Java aplication to find out which people/person are/is outstanding
+
+
+two types pr person:
+
+professor:
+	attributes: name, department, number of books published
+	functinality: returns true or false based on whether the professor is outstanding or not
+	[logic: a professor is outstanding if the person has published more than 5 books]
+
+student:
+	attributes: name, branch, marks
+	functinality: returns true or false based on whether the student is outstanding or not
+	[logic: a student is outstanding if the person has secured more than 85 marks]
+
+1. create classes for those two types in a separate package
+2. they must have default and parameterized constructors, data members, getters and setters and functionalities
+3. in main method of another class in different package, create objects of these two types
+	a. ask user how many person instances/records to be created
+	b. create that many people (accept all the attribute values from user)
+		i. print menu for user so that user can choose which type of object to be created
+		ii. based on the choice you create that type of object
+	c. save every instance in an array
+	d. iterate through the array and figure out which person in outstanding and print the name and marks/number of books publshed for that person ONLY
