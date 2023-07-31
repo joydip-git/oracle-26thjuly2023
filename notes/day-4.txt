@@ -1,3 +1,5 @@
+Dependency injection and loose copuling vs tight coupling :
+
 Dependent class and dependency factor class:
 Dependent class will be affected if following things happen with Dependency factor:
 
@@ -14,6 +16,9 @@ The way of injecting the dependency factor object inside dependent class object 
 The entire principle of creating instance of dependency factor inside a container and get that injected inside dependent object is known as Inversion of Control (IOC)
 
 This is one of the SOLID principle (D)
+
+SOLID:
+
 S=Single Responsibility
 O=Open close
 L=
@@ -24,5 +29,7 @@ singleton pattern:
 creating single instance of a class
 Not more than one instance 
 
+static keyword, final and static final keyword
 
-AppLogger.getLogger()
+JAR files
+
