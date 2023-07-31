@@ -1,4 +1,4 @@
-Dependency injection and loose copuling vs tight coupling :
+1. Dependency injection and loose coupling vs tight coupling :
 
 Dependent class and dependency factor class:
 Dependent class will be affected if following things happen with Dependency factor:
@@ -17,7 +17,7 @@ The entire principle of creating instance of dependency factor inside a containe
 
 This is one of the SOLID principle (D)
 
-SOLID:
+2. SOLID:
 
 S=Single Responsibility
 O=Open close
@@ -25,11 +25,48 @@ L=
 I=interface segregation
 D=dependency injection 
 
-singleton pattern:
+3. singleton pattern:
 creating single instance of a class
 Not more than one instance 
 
-static keyword, final and static final keyword
+4. static keyword, final and static final keyword
 
-JAR files
+5. JAR files
+
+6. has-a relationship
+7. Optional<T> and optional argument declared with default value in function
+
+8. collection classes
+
+Iterable => Collection (interfaces)
+
+		List => 
+			ArrayList, LinkedList [also implements Deque], Vector => Stack (concrete classes)
+		Queue => 
+			PriorityQueue (concrete class)
+			Deque (interface) => ArrayDeque
+
+		Set => 
+			HashSet, LinkedHashSet (concrete classes)
+			SortedSet (interface) => TreeSet (concrete class)
+
+		Map => 
+			HashMap (class) => LinkedHashMap (class)
+			SortedMap (interface) => TreeMap
+
+joydip => asdhgcvjasvcjhsa541236532135jbsdvcnxzbkjcnhsa
+
+
+2^128/256 => x hash codes
+hashing:
+		hashfunction(value,key) => hashcode
+
+dell => set.add(dell) => dell.hashCode() => 31
+hp => set.add(hp) => hp.hascode() => 31
+
+	
+
+	
+
+
 

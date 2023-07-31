@@ -74,6 +74,13 @@ public class Product {
 	}
 
 	@Override
+	public int hashCode() {
+		final int seed = 31;
+		int hash = Integer.hashCode(this.id * seed);
+		return hash;
+	}
+
+	@Override
 	public boolean equals(Object arg0) {
 		if (this == arg0) {
 			return true;
@@ -85,17 +92,15 @@ public class Product {
 		if (!(this.getId() == other.getId()))
 			return false;
 
-		if (!(this.getName().equals(other.getName())))
-			return false;
-
-		if (!(this.getPrice() == other.getPrice()))
-			return false;
-
-		if (!(this.getDescription().equals(other.getDescription())))
-			return false;
+		/*
+		 * if (!(this.getName().equals(other.getName()))) return false;
+		 * 
+		 * if (!(this.getPrice() == other.getPrice())) return false;
+		 * 
+		 * if (!(this.getDescription().equals(other.getDescription()))) return false;
+		 */
 
 		return true;
-
 	}
 
 	@Override

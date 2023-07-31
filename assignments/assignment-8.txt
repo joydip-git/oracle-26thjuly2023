@@ -1,0 +1,9 @@
+Create a Java application-
+	with a class Customer (id, name, location, mobile)
+	create an unique collection of Customers
+	sort the Customers collection based on choice from user
+		1 => sort by customer id
+		2 => sort by customer name
+		3 => sort by location
+		4 => sort by mobile
+	
