@@ -6,4 +6,6 @@
 <fullyQualifiedTypeName name="com.java.pmsapp.dataaccess.implementation.ProductDataAccess"/>
 <fullyQualifiedTypeName name="com.java.pmsapp.container.Injector"/>
 <fullyQualifiedTypeName name="com.java.pmsapp.dataaccess.contracts.DataAccessContract"/>
+<fullyQualifiedTypeName name="Employee"/>
+<fullyQualifiedTypeName name="com.java.pmsapp.logging.AppLogger"/>
 </qualifiedTypeNameHistroy>

@@ -1,0 +1,28 @@
+Dependent class and dependency factor class:
+Dependent class will be affected if following things happen with Dependency factor:
+
+Change the name
+Class is abstract
+Class constructor throws error 
+
+Solution:
+Don't create instance of dependency factor inside dependent class directly 
+Get the object of dependency factor created somewhere else and get that object injected in the dependent class object
+
+The place where object of dependency factor is created is known as IOC container
+The way of injecting the dependency factor object inside dependent class object is known as Dependency Injection
+The entire principle of creating instance of dependency factor inside a container and get that injected inside dependent object is known as Inversion of Control (IOC)
+
+This is one of the SOLID principle (D)
+S=Single Responsibility
+O=Open close
+L=
+I=interface segregation
+D=dependency injection 
+
+singleton pattern:
+creating single instance of a class
+Not more than one instance 
+
+
+AppLogger.getLogger()

@@ -12,7 +12,7 @@ public class Client {
  
 		Injector injector = Injector.instantiate();
 		DataAccessContract<Product> productDao = injector.create();
-		
+		productDao.add(p);
 	}
 
 }

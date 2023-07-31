@@ -48,11 +48,18 @@
 	<section name="SourceActionDialog.methods">
 		<item value="false" key="SynchronizedModifier"/>
 		<item value="false" key="Comments"/>
+		<item value="2" key="InsertPosition.v2"/>
 		<item value="1" key="VisibilityModifier"/>
 		<item value="false" key="FinalModifier"/>
 	</section>
 	<section name="OverrideMethodDialog">
 		<item value="true" key="showtypes"/>
+	</section>
+	<section name="JarImportWizard">
+		<item value="false" key="org.eclipse.ltk.ui.refactoring.sortRefactorings"/>
+		<list key="org.eclipse.jdt.ui.refactoring.jarHistory">
+			<item value="D:\oracle\oracle-26thjuly2023\PmsAppDataAccessLayer.jar"/>
+		</list>
 	</section>
 	<section name="NewPackageWizardPage">
 		<item value="false" key="create_package_info_java"/>
@@ -82,14 +89,15 @@
 		<item value="true" key="jarOptionsWizardPage.EXPORT_ERRORS"/>
 		<item value="true" key="JarManifestWizardPage.GENERATE_MANIFEST"/>
 		<item value="true" key="JarPackageWizardPage.EXPORT_CLASS_FILES"/>
-		<item value="false" key="JarPackageWizardPage.OVERWRITE"/>
+		<item value="true" key="JarPackageWizardPage.OVERWRITE"/>
 		<item value="false" key="jarOptionsWizardPage.SAVE_DESCRIPTION"/>
 		<item value="false" key="JarPackageWizardPage.REFACTORINGS"/>
 		<item value="false" key="JarManifestWizardPage.SAVE_MANIFEST"/>
 		<item value="false" key="JarPackageWizardPage.EXPORT_OUTPUT_FOLDER"/>
 		<list key="JarPackageWizardPage.DESTINATION_NAMES_ID">
-			<item value="D:\oracle\oracle-26thjuly2023\PmsAppIOCContainer.jar"/>
 			<item value="D:\oracle\oracle-26thjuly2023\PmsAppDataAccessLayer.jar"/>
+			<item value="D:\oracle\oracle-26thjuly2023\PmsAppLogger.jar"/>
+			<item value="D:\oracle\oracle-26thjuly2023\PmsAppIOCContainer.jar"/>
 			<item value="D:\oracle\oracle-26thjuly2023\PmsAppDataAccessContract.jar"/>
 			<item value="D:\oracle\oracle-26thjuly2023\PmsAppEntities.jar"/>
 		</list>

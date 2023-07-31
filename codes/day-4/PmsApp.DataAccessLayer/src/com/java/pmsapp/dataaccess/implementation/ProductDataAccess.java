@@ -1,5 +1,6 @@
 package com.java.pmsapp.dataaccess.implementation;
 
+import com.java.pmsapp.logging.*;
 import java.util.List;
 
 import com.java.pmsapp.dataaccess.contracts.*;
@@ -9,7 +10,13 @@ public class ProductDataAccess implements DataAccessContract<Product> {
 
 	@Override
 	public boolean add(Product product) {
-		//JDBC code
+		try {
+
+		} catch (Exception e) {
+			// AppLogger logger = new AppLogger();
+			AppLogger logger = AppLogger.getLogger();
+			logger.LogError("error occurred");
+		}
 		return false;
 	}
 
@@ -21,7 +28,7 @@ public class ProductDataAccess implements DataAccessContract<Product> {
 
 	@Override
 	public Product get(int productId) {
-		//JDBC code
+		// JDBC code
 		return null;
 	}
 
