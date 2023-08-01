@@ -21,16 +21,6 @@ public class App {
 		//Greetings.sayBye(name);
 		// Referring to a static method of Greetings class (using Class Name)
 		MessagePrinter referenceToSayBye = Greetings::sayBye;
-		printMessage(referenceToSayBye);
-		//filter(numbers,<logic>);
+		printMessage(referenceToSayBye);	
 	}
-	/*static List<Integer> filter(List<Integer> input,<logic>){
-		List<Integer> result = new ArrayList<Integer>();
-		for (Integer num : input) {
-			if(condition) {
-				result.add(num);
-			}
-		}
-		return result;
-	}*/
 }

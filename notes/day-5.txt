@@ -132,6 +132,32 @@ Method Reference:
 
 
 Lambda Expression/function:
+	It is an expression to write an anonymous method and pass the reference of that method to a functional interface
+
+	public interface Prototype {
+		int invokeImplementation(int a, int b);
+	}
+
+	main(){
+		Prototype prototype = (first, second) -> {
+			return first - second;
+		};
+	}
+
+	access-specifier return-type method-name(data-type arg-name){
+		//body of the function
+	}
+
+	([data-type]arg0)->{}
+
+	(arg0, arg1) ->{
+		if(arg1 == 0 || arg1 == 0)
+			throw new divi....
+		else  if(arg0>arg1)
+			return arg0/arg1;
+			else 
+			return arg1/arg0;
+	}
 
 
 
