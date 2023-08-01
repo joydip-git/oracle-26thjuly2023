@@ -19,3 +19,7 @@ Create a Java application to filter values from an array or list of integers
 		C. return the resultant array/list
 	ii. the method must return another list/array containing those even numbers only
 3. in the main method just print the values from the collection return by that method
+
+B. you have convert non-generic Functional Interface to generic functional interface
+C. do not use the class which contains several methods matching to the functional interface methods
+rather in the main method use lmbda function/expression to write your logic and pass that anonymous method to the functional interface variable
