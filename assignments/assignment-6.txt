@@ -1,8 +1,12 @@
 create a Java application which will help user to 
 	a. add new product
-	b. update/delete existing product
-	c. fetch all products
+	b. update an existing product
+	c. fetch all products and displaying them
+		ask user a choice to sort the rcords
 	d. fetch a product by id
+	e. delete existing product
+	f. fetch all products matching to a product name entered by user (partial matching should work)
+		ask user a choice to sort the rcords or at least the records shpould be sorted by default (either by name or pby price if the name is same)
 
 details of product:
 	attributes: id, name, price, description
@@ -48,4 +52,9 @@ architecture:
 	use your imagination about how user should be able to add new record, delete/update an existing record as well as get all the records in order to display or get single record in order to display
 	ask user for choices and based on choices you should call the methods
 	note: any utility method, such as printing menu, asking for user choice etc. shoul;d be kept in a separate class as public static methods and be used from main method
+
+	Note: while printing all the records, they should be sorted by user choice
+	additional functionality:
+	User should be able to search records matching to product name (fully or partially)
+
 

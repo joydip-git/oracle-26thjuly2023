@@ -51,17 +51,37 @@ public class App {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("enter choice[1/2]: ");
 		int choice = sc.nextInt();
-		PersonComparer pc = new PersonComparer(choice);
-		Collections.sort(people, pc);
-		for (Person p : people) {
-			System.out.println(p.getId() + ", " + p.getName());
-		}
+		/*
+		 * PersonComparer pc = new PersonComparer(choice); Collections.sort(people, pc);
+		 * for (Person p : people) { System.out.println(p.getId() + ", " + p.getName());
+		 * }
+		 */
+
 		/*
 		 * for (int i = 0; i < people.size(); i++) { for (int j = i + 1; j <
 		 * people.size(); j++) { Person p1 = people.get(i); Person p2 = people.get(j);
 		 * // if (p1.compareTo(p2) > 0) { if (pc.compare(p1, p2) > 0) { Person temp =
 		 * p1; people.set(i, p2); people.set(j, temp); } } }
 		 */
+
+		Comparator<Person> compareLogic = null;
+		switch (choice) {
+		case 1:
+			compareLogic = (p1, p2) -> Integer.compare(p1.getId(), p2.getId());
+			break;
+
+		case 2:
+			compareLogic = (p1, p2) -> p1.getName().compareTo(p2.getName());
+			break;
+
+		default:
+			break;
+		}
+		if (compareLogic != null) {
+			Collections.sort(people, compareLogic);
+		}
+
+		people.forEach((p) -> System.out.println(p.getId() + ", " + p.getName()));
 	}
 
 }

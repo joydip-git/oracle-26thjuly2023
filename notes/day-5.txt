@@ -44,11 +44,11 @@ Java 8 new features:
 	Type inference
 	Functional Interface
 	Method Reference
-	Lambda Function
-	Optional
+	Lambda Function	
 	Stream
 	Default Methods
 	Collectors
+	Optional
 
 	etc.
 
@@ -158,6 +158,25 @@ Lambda Expression/function:
 			else 
 			return arg1/arg0;
 	}
+
+Built-in functional interfaces:
+interface Comparator<T>{
+	T compare(T a, T b);
+}
+
+interface Consumer<T>{
+	void accept(T data);
+}
+
+
+class List<T> implements Collection<T>,....{
+	 stream()
+}
+
+
+
+
+
 
 
 
