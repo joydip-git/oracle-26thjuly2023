@@ -1,0 +1,44 @@
+Comaprison and its use in Sorting:
+	a. internalization: sorting logic is written inside the entity. 
+	How to: 
+		i. Use Comparable<T> interface. Implement this interface in the entity.
+		ii. Implement the following method of the interface:
+			interface Comparable<T>{			
+				int compareTo(T o);
+			}
+			class T implements Comparable<T>{
+				public int compareTo(T o){
+					//code
+					return 0;
+				}
+			}
+		Collections.sort(collection-of-Ts);
+		p1.compareTo(p2) => 
+			> 0 => first (p1) is greater than the second (p2)
+			< 0 => first (p1) is lesser than the second (p2)
+			= 0 => first (p1) and the second (p2) are same
+
+	b. extrenalization: sorting logic is written outside the entity, inside some other class
+	How to: 
+		i. Use Comparer<T> interface. Implement this interface another class.
+		ii. Implement the following method of the interface:
+			interface Comparer<T>{			
+				int compare(T t1, T t2);
+			}
+			class TComparer implements Comparer<T>{
+				@Override
+				public int compare(T t1, T t2){
+					//code
+					return 0;
+				}
+			}
+			TComparer tc = new TComparer();
+			Collections.sort(collection-of-Ts,tc);
+
+			tc.compare(p1,p2) => 
+				> 0 => first (p1) is greater than the second (p2)
+				< 0 => first (p1) is lesser than the second (p2)
+				= 0 => first (p1) and the second (p2) are same
+
+
+
