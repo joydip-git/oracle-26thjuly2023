@@ -1,0 +1,21 @@
+Create a Java application to filter values from an array or list of integers
+	filtration logic: it could be anything
+	example:
+	filter all even numbers from the list/array or 
+	odd numbers from the list/array or 
+	number greater than five etc.
+
+
+1. create a List/Array of numbers and store some numbers in it
+2. you have to create another static method (say, filter) after/before main method
+	i. call the method from main and pass the list/array
+	ii. the method must now filter all even numbers from the list/array
+	Note: 
+	*do not use any built-in method of the collection to filter the collection. 
+	**do not write any logic for filtration inside that method. 
+	***Pass the logic as 2nd argument to this filter method.
+		A. use for/foreach loop to iterate the input array/list.
+		B. add the numbers which satisfy the filtration logic in an another list/array
+		C. return the resultant array/list
+	ii. the method must return another list/array containing those even numbers only
+3. in the main method just print the values from the collection return by that method

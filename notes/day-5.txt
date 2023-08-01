@@ -40,5 +40,101 @@ Comaprison and its use in Sorting:
 				< 0 => first (p1) is lesser than the second (p2)
 				= 0 => first (p1) and the second (p2) are same
 
+Java 8 new features:
+	Type inference
+	Functional Interface
+	Method Reference
+	Lambda Function
+	Optional
+	Stream
+	Default Methods
+	Collectors
+
+	etc.
+
+class A<T>{
+	public void add(T obj){}
+}
+
+A<String> cls = new A<String>();
+
+
+Functional Interface:
+	an interface with exactly one abstract method
+
+Method Reference:
+	reference/address of a method
+	(easy way of writing Lambda exoression)
+	where: used in CALLBACK MECHANISM 
+	from one (1st) method you are calling another method (2nd) and passing reference of a another (3rd) method as an argument, so that the 3rd method can be called from 2nd method
+
+	[C++ => pointer to a function]
+	a. instance method
+	b. static method
+	c. constructor
+
+	here a functional interface is used to store reference of a method
+	How to:
+	a. create a functional interface with a prototype of function that you want to invoke
+	note: now using this functional interface you can refer and invoke the method(s) whose signature is/are ditto same as that of the method prototype in the functional interface
+
+	Example: 
+	@FunctionalInterface
+	public interface MessagePrinter {
+		String invokeMessagePrinterImplementation(String personName);
+	}
+
+	b. create an implementation class having a method whose signature is similar to the functional interface's prototype method 
+	public class Greetings {
+	
+		public String sayHello(String name) {
+			return "Hello " + name;
+		}
+
+		public static String sayBye(String name) {
+			return "Bye " + name;
+		}
+	}
+	Note: it is not necessary to implement the interface in the class
+
+	c. 
+	i. instance method reference:
+		if the method is instance method, create an instance of the implementation class
+		Greetings greetings = new Greetings();
+	
+		declare a variable of that functional interface to store reference of the instance method, through reference variable of that class instance
+
+		MessagePrinter referenceToSayHello = greetings::sayHello;
+
+	ii. static method reference:
+		if the method is static, do not create any instance of the implementation class. declare a variable of that functional interface to store reference of the static method through class name
+
+		MessagePrinter referenceToSayBye = Greetings::sayBye;
+
+	d. invoke the prototype method of functional interface and pass any argument(s) that the function requires.
+	   The method will call the actual method, whose reference is stored through this functional interface. 
+	   If the actual method involves return type, then the return value will be returned by the functional interface's 	   prototype method call.
+		
+	  
+	   static void main(){
+		 //calling from main method
+	   	String helloMessage = referenceToSayHello.invokeMessagePrinterImplementation("joydip");
+	        String byeMessage = referenceToSayBye.invokeMessagePrinterImplementation("joydip");
+
+		//or pass the interface variable to another method 
+		printMessage(referenceToSayHello);
+		printMessage(referenceToSayBye);
+	    }
+		
+	    static void printMessage(MessagePrinter printer){
+	 	printer.invokeMessagePrinterImplementation("joydip");
+	    }
+
+
+Lambda Expression/function:
+
+
+
+
 
 
