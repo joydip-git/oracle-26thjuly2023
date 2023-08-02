@@ -153,6 +153,21 @@ default method of interface:
 	add extra features in existing contracts/implementation (interfaces/classes) with code without disturbing the existing classes which already implemented that interface
 	used for backward compatibility
 
+Collection<E>{
+	default Stram<? extends T>stream(){
+	}
+}
+List<E> extends Collection<E>{}
+ArrayList<E> implements List<E>{}
+
+interface Stream<T>{
+	Stream<T> filter(Predicate<? extends T> p);
+}
+
+Fuctional Interfaces:
+Predicate<T> => boolean test(T t);
+
+
 
 
 

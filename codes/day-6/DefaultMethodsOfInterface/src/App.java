@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class App {
@@ -20,6 +21,9 @@ public class App {
 			}
 		};
 		numbers.sort(compare);
+		
+		List<Integer> list = new ArrayList<Integer>();
+		list.stream();
 	}
 
 }
