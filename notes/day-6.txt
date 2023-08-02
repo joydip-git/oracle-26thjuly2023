@@ -1,0 +1,121 @@
+Nested classes:
+classes can be nested inside
+	a. another class 
+	b. another interface
+	c. a method inside a class or interface
+
+types of nested classes
+	a. static
+	b. non-static
+		i. Member inner class
+		ii. anonymous inner class
+		iii. Local inner class
+
+
+class Address{}
+class Person{
+	Address address;
+	public Person(){}
+	public Person(Address address){
+		this.address = address;
+	}
+	public void setAddress(Address address){
+		this.address = address;
+	}
+}
+
+interface Map<K,V>{
+	class Entry<K,V>{
+	}
+}
+
+class HashMap<K,V>{
+
+	Set<Entry<K,V>> entries;
+	public HashMap(){
+		entries = new HashSet<Entry<K,V>>();
+	}
+}
+
+
+A. a Non-static Class nested inside a class: (member inner class)
+class A{
+	class B{}
+}
+
+B. a static class nested inside a class:
+class A{
+	static class B{}
+}
+
+Person.java
+class Person{
+	Address address;
+	public Person(){}
+	public Person(Address address){
+		this.address = address;
+	}
+	public void setAddress(Address address){
+		this.address = address;
+	}
+}
+class Address{}
+
+Person.java
+public class Person {
+	private String name;
+
+	public Person() {
+	}
+
+	public Person(String name) {
+		this.name = name;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+}
+
+
+Person$Address.java
+	public class Person$Address {
+		final Person this$0;
+		private String location;
+		
+		public Person$Address() {
+			this$0 = Person.this;
+		}
+
+		public Person$Address(String location) {
+			this.location = location;
+		}
+
+		public void setLocation(String location) {
+			this.location = location;
+		}
+
+		public String getLocation() {
+			return this.location;
+		}
+		public String getInfo(){
+			//return this.name +", "+this.location;
+			return new StringBuilder(()).append(Person.access$000(Person.this)).append(this.location).toString();
+		}
+	}
+
+
+Has-a relationship:
+a. association
+b. aggregation (A  -> B, B -> A)
+c. composition (A  -> B, B -> A)
+
+
+
+
+
+
