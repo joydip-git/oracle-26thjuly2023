@@ -108,11 +108,50 @@ Person$Address.java
 		}
 	}
 
+c. anonymous class extending abstract/concrete class:
+static class App$1 extends FileDataAccess{
+	App$1(){}
+	@Override
+	public String getData() {
+		return "data from XML file";
+	}
+}
 
 Has-a relationship:
 a. association
 b. aggregation (A  -> B, B -> A)
 c. composition (A  -> B, B -> A)
+
+static class Person$1{
+	@Override
+	public int compare(Person o1, Person o2) {
+		return Integer.compare(o1.getId(), o2.getId());
+	}
+}
+
+class A{
+	private int x;
+	class C{
+		public void test(){
+			x = 10;
+		}
+	}
+	public void foo(){
+		final class B{
+			x
+		}
+		B obj = new B();
+	}
+}
+
+interface IA{
+	class A{
+	}
+}
+
+default method of interface:
+	add extra features in existing contracts/implementation (interfaces/classes) with code without disturbing the existing classes which already implemented that interface
+	used for backward compatibility
 
 
 

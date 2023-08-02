@@ -1,4 +1,5 @@
 import java.util.Set;
+import java.util.function.Predicate;
 
 public class App {
 
@@ -28,6 +29,31 @@ public class App {
 			System.out.println(mapEntry.getKey() + ", " + mapEntry.getValue());
 		}
 
+		// FileDataAccess fileDataAccessObject = new TextFileDataAccess("");
+		// Predicate<Integer> evenPredicate = new FilterLogic()::isEven;
+		// Predicate<Integer> oddPredicate = (number) -> number % 2 != 0;
+
+		// created here an anonymous class extending FileDataAccess abstract/concrete
+		// class or interface
+		// new keyword here is used to create instance of that anonymous class
+		// fileDataAccessObject variable stored reference of the instance of the
+		// anonymous class
+		/*
+		 * FileDataAccess fileDataAccessObject = new FileDataAccess() {
+		 * 
+		 * @Override public String getData() { return "data from XML file"; } };
+		 * fileDataAccessObject.setFilePath(""); String data =
+		 * fileDataAccessObject.getData(); System.out.println(data);
+		 */
+		FileDataAccess fileDataAccessObject = new FileDataAccess() {
+			@Override
+			public String getData() {
+				return "data from XML file";
+			}
+		};
+		// fileDataAccessObject.setFilePath("");
+		String data = fileDataAccessObject.getData();
+		System.out.println(data);
 	}
 
 }
