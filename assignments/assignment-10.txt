@@ -1,0 +1,13 @@
+create a Java application for calculation:
+	A. 
+	i. create an interface with declaration of two methods: add and subtract
+	both the methods accept exactly two arguments of type integer and returns an integer
+
+	ii. create a class (calculation) to implement the interface and the two methods
+	iii. call those methods of the class from the main method
+
+	B. 
+	i. Now, add two more extra methods multiply and divide in the class without changing the source code of the class.
+	both the methods accept exactly two arguments of type integer and returns an integer
+	ii. call those extra two methods of the class from the main method, too
+	
