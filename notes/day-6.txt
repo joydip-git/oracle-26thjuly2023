@@ -167,6 +167,38 @@ interface Stream<T>{
 Fuctional Interfaces:
 Predicate<T> => boolean test(T t);
 
+Exception handling:
+	runtime error
+	ArithmeticException ar = new ArithmeticException("divide by zero");
+
+	types of exceptions:
+	a. checked exceptions:
+	b. unchecked exceptions: exceptions that inherit from RuntimeException. they are not checjed during compilation time.
+	c. errors: you can't control and can't recover from that
+
+	Hierarchy:
+	Throwable
+		Exception:
+			RuntimeException
+				ArithmetocException
+				NullPointerException
+				IndexOutOfBoundsException
+					ArrayIndexOutOfBoundsException
+					StringIndexOutOfBoundsException
+			ClassNotFoundException
+			SQLException
+			IOException
+		Error:
+			StackOverflowError
+			VirtualMachineError
+			OutOfMemoryError
+
+reflection
+threading
+jdbc
+
+	
+
 
 
 
