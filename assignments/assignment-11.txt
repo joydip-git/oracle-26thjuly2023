@@ -7,3 +7,28 @@
 		  (number)		(varchar2(20))
 
 2. fetch records from products table into a Java application
+	you have to write a query to fetch category_name along with how many products are there for each category \
+	records should be sorted by category_name
+	Note: if there is no product for any category, 0 should be displayed
+
+	select...
+	
+	query result:
+	-----------------------------------
+	category_name  product_count
+	book		2
+	laptop		2
+	mobile		2
+	stationary	0
+
+	JDBC application:
+	category name   no of products
+	----------------------------------
+	book		2
+	laptop		2
+	mobile		2
+	stationary	0
+
+	on the JDBC application all settings (except properties file path) will be placed inside a properties file
+	read the configuration from properties file
+	

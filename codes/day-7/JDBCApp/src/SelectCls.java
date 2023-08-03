@@ -41,7 +41,7 @@ public class SelectCls {
 
 	public static void main(String[] args) {
 		Connection connectionInstance = null;
-		Statement statement = null;
+		//Statement statement = null;
 		PreparedStatement preparedStatement = null;
 		ResultSet queryResult = null;
 		Properties properties = null;
