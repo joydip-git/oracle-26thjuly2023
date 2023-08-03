@@ -1,11 +1,9 @@
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
-public class App {
+public class UpdateCls {
 
 	static void registerDriver() throws ClassNotFoundException {
 		try {
@@ -36,9 +34,8 @@ public class App {
 
 	public static void main(String[] args) {
 		Connection connectionInstance = null;
-		Statement statement = null;
 		PreparedStatement preparedStatement = null;
-		ResultSet queryResult = null;
+		Integer result = null;
 
 		try {
 			// 1. register the driver
@@ -48,15 +45,19 @@ public class App {
 			connectionInstance = createConnection();
 
 			// 3. create a statement with SQL query
-			//statement = connectionInstance.createStatement();
-			preparedStatement = connectionInstance.prepareStatement("select product_id,product_name,price,description,category_id from products where product_id=?");
-			preparedStatement.setInt(1, 3);
+			preparedStatement = connectionInstance.prepareStatement(
+					"update products set product_name=?,price=? where product_id=?");
+			preparedStatement.setInt(3, 7);
+			preparedStatement.setString(1, "Xiaomi 7");
+			preparedStatement.setFloat(2, 80000);
 			
+
 			// 4. execute the query
-			//queryResult = statement.executeQuery("select employee_id, employee_name from employees");
-			queryResult = preparedStatement.executeQuery();
-			while (queryResult.next()) {
-				System.out.println(queryResult.getInt(1) + ", " + queryResult.getString(2));
+			result = preparedStatement.executeUpdate();
+			if(result>0) {
+				System.out.println("record updated successfully");
+			}else {
+				System.out.println("record could not be updated");
 			}
 
 		} catch (ClassNotFoundException e) {

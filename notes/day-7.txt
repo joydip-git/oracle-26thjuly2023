@@ -34,3 +34,10 @@ DriverManager:
 	this class uses the definition (information) of the Driver class you have registered in your application (such OracleDriver from oracle.jdbc.driver package in ojdbc8/11/jar).
 	Using the information an instance of OracleDriver class is created behind the scence 
 	using getConnection() method, now, the DriverManager class will retrieve the connection information to database and create an instance of Connection type class and puts that connection information in that Connection type class object and returns the same to application.
+
+Properties: type of collection class. it is child class of HashTable.
+
+	
+	HashTable inherits Dictionary class and implements the Map interface
+
+
