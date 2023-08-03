@@ -4,5 +4,6 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/com.java.pmsapp.dataaccess.contracts"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/com.java.pmsapp.entities"/>
+	<classpathentry kind="lib" path="C:/Users/ghosh/Downloads/ojdbc8.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

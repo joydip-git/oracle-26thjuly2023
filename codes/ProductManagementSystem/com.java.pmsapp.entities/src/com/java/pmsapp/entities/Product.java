@@ -5,8 +5,11 @@ public class Product {
 	private String productName;
 	private String description;
 	private double price;
-	private Category categoryInfo;
 	private Integer categoryId;
+	
+	//association (navigation) attribute
+	private Category categoryInfo;
+	
 
 	public Product() {
 		super();

@@ -1,0 +1,9 @@
+1. create two tables
+	- products
+		- product_id (pk), product_name, description, price, catgeory_id(fk)
+		  (number)	   varchar2(300) varchar2(500) number number
+	- categories
+		- category_id(pk), category_name
+		  (number)		(varchar2(20))
+
+2. fetch records from products table into a Java application
