@@ -1,0 +1,36 @@
+JDBC
+File Handling
+Reflection
+MultiThreading
+
+JDBC: Java DataBase Connectivity
+	- set of APIs to connect and interact with datavase and its tables and other objects
+	- Java SE
+	- java.sql package contains JDBC APIs (Interfaces)
+		- Driver interface
+		- Connection Interface
+		- Statement Interface
+			- prepared statement (PreparedStatement)
+			- callable statement (CallableStatement)
+		- ResultSet
+
+Download JDBC driver for oracle/sqlserver/mysql
+
+JDBC Driver:
+	1. JDBC-ODBC (Open Database Connectivity) bridge driver
+	2. Native API driver (written in Java partially)
+	3. Network Protocol driver (written fully in Java)
+	4. Thin driver (written fully in Java)
+
+steps to connect to database using JDBC:
+1. register the driver class
+2. create connection object
+3. create statement object
+4. execute the statement
+5. close connection
+
+
+DriverManager:
+	this class uses the definition (information) of the Driver class you have registered in your application (such OracleDriver from oracle.jdbc.driver package in ojdbc8/11/jar).
+	Using the information an instance of OracleDriver class is created behind the scence 
+	using getConnection() method, now, the DriverManager class will retrieve the connection information to database and create an instance of Connection type class and puts that connection information in that Connection type class object and returns the same to application.

@@ -172,8 +172,8 @@ Exception handling:
 	ArithmeticException ar = new ArithmeticException("divide by zero");
 
 	types of exceptions:
-	a. checked exceptions:
-	b. unchecked exceptions: exceptions that inherit from RuntimeException. they are not checjed during compilation time.
+	a. checked exceptions: exceptions that are checked during compile-time, such as ClassNotFoundException.
+	b. unchecked exceptions: exceptions that inherit from RuntimeException. they are not checked during compilation time.
 	c. errors: you can't control and can't recover from that
 
 	Hierarchy:
