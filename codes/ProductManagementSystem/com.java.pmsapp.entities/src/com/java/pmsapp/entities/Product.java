@@ -6,16 +6,16 @@ public class Product {
 	private String description;
 	private double price;
 	private Integer categoryId;
-	
-	//association (navigation) attribute
+
+	// association (navigation) attribute
 	private Category categoryInfo;
-	
 
 	public Product() {
 		super();
 	}
 
-	public Product(int productId, String productName, String description, double price, Category category, Integer categoryId) {
+	public Product(int productId, String productName, String description, double price, Category category,
+			Integer categoryId) {
 		super();
 		this.productId = productId;
 		this.productName = productName;
@@ -105,7 +105,7 @@ public class Product {
 				.append(price)
 				.append(", ")
 				.append(description)
-				.append(this.categoryInfo.getCategoryName())
+				.append(this.categoryInfo != null ? this.categoryInfo.getCategoryName() : "NA")
 				.toString();
 	}
 }

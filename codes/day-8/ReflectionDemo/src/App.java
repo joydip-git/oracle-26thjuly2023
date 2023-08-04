@@ -1,16 +1,32 @@
+import java.io.File;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Parameter;
+import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URL;
+import java.net.URLClassLoader;
 
 public class App {
 
-	public static void main(String[] args) {
-		
+	public static void main(String[] args) throws MalformedURLException {
+
+		//Person anil = new Person();
 		try {
+			File file = new File("D:\\oracle\\oracle-26thjuly2023\\codes\\day-8\\Entities\\bin");
+			URI uri = file.toURI();
+			URL url = uri.toURL();
+			System.out.println(uri.getPort() + ", " + uri.getPath());
+			System.out.println(url.getPath());
+			ClassLoader loader = new URLClassLoader(new URL[] { url });
+			//ClassLoader.getSystemClassLoader().getClass();
+
+			Class classInstanceWithPersonInfo = loader.loadClass("Person");
+
 			// extracted information about a data type (Class) (technique-1)
-			Class<?> classInstanceWithPersonInfo = Class.forName("Person");
+			// Class<?> classInstanceWithPersonInfo = Class.forName("Person");
 
 			// printing name of the class and whether it is interface or not
 			System.out.println("Name: " + classInstanceWithPersonInfo.getName());
@@ -77,7 +93,8 @@ public class App {
 			 * constructor; break; } }
 			 */
 
-			//extracting information of a type using <type-name>.class property (technique-2)
+			// extracting information of a type using <type-name>.class property
+			// (technique-2)
 			Constructor parameterizedCtorInfo = classInstanceWithPersonInfo
 					.getDeclaredConstructor(new Class[] { String.class, int.class });
 
@@ -87,22 +104,25 @@ public class App {
 			// "Anil", 1 });
 			// System.out.println("Name: " + anilPerson.getName());
 
-			// no down-casting and passing parameters for parameterized constructor by creating Object type array
+			// no down-casting and passing parameters for parameterized constructor by
+			// creating Object type array
 			// Object anilPerson = parameterizedCtorInfo.newInstance(new Object[] { "Anil",
 			// 1 });
-			
+
 			// no down-casting and passing parameters for parameterized constructor directly
 			Object anilPerson = parameterizedCtorInfo.newInstance("Anil", 1);
 
 			if (anilPerson != null) {
-				// extract information of a data type using getClass() method from Object class (technique-3)
+				// extract information of a data type using getClass() method from Object class
+				// (technique-3)
 
 				// Class<? extends Person> clsInfo = anilPerson.getClass();
 				// Class<?> clsInfo = anilPerson.getClass();
 				// System.out.println(clsInfo.getName());
 
-				//extracting a particular method information from class metadata 
-				//pass method name and all parameter class information to the getMethod() method
+				// extracting a particular method information from class metadata
+				// pass method name and all parameter class information to the getMethod()
+				// method
 				Method setNameMethodInfo = classInstanceWithPersonInfo.getMethod("setName", String.class);
 				setNameMethodInfo.invoke(anilPerson, "Anil Kumar");
 
@@ -120,6 +140,8 @@ public class App {
 		} catch (InvocationTargetException e) {
 			e.printStackTrace();
 		} catch (NoSuchMethodException e) {
+			e.printStackTrace();
+		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}
 	}
