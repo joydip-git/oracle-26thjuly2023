@@ -1,0 +1,13 @@
+--insert into categories values(4,'stationary');
+select categories.category_name, NVL(count(products.product_name),0) as product_count 
+from categories 
+left outer join products 
+on categories.category_id = products.category_id 
+group by categories.category_name
+order by categories.category_name;
+
+--select category_name, count(*) as no_of_products  from products join categories on (categories.category_id = products.category_id) group by category_name;
+select category_name, count(products.product_name) as no_of_products  
+from categories left outer join products 
+on (categories.category_id = products.category_id) 
+group by category_name;

@@ -41,3 +41,5 @@ Properties: type of collection class. it is child class of HashTable.
 	HashTable inherits Dictionary class and implements the Map interface
 
 
+
+

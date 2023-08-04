@@ -1,0 +1,7 @@
+1. how to create custom exception class
+	- handle situation in your application, where JVM does not throw any exception
+	- in layered architecture application for exception wrapping and propagating (funnelling and tunneling technique)
+2. exception propagation in layered application
+
+3. reflection
+4. junit

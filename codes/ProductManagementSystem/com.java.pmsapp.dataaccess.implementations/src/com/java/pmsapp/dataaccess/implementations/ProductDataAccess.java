@@ -12,12 +12,13 @@ import java.util.List;
 
 //import com.java.pmsapp.dataaccess.contracts.DataAccess;
 import com.java.pmsapp.entities.Product;
+import com.java.pmsapp.applicationexceptions.DataAccessException;
 import com.java.pmsapp.dataaccess.abstractions.*;
 
 public class ProductDataAccess implements ProductDataAccessContract {
 
 	@Override
-	public List<Product> fetchAll() {
+	public List<Product> fetchAll() throws DataAccessException {
 		Connection connection = null;
 		Statement statement = null;
 		ResultSet resultSet = null;
@@ -39,22 +40,27 @@ public class ProductDataAccess implements ProductDataAccessContract {
 				products.add(p);
 			}
 		} catch (SQLException e) {
-			DataAccessException dataEx = new DataAccessException(e.getStackTrace());
+			DataAccessException dataEx = new DataAccessException(e.getMessage(), e);
 			throw dataEx;
 		} catch (ClassNotFoundException e) {
-			DataAccessException dataEx = new DataAccessException(e.getStackTrace());
+			DataAccessException dataEx = new DataAccessException(e.getMessage(), e);
 			throw dataEx;
 		} catch (Exception e) {
-			DataAccessException dataEx = new DataAccessException(e.getStackTrace());
+			DataAccessException dataEx = new DataAccessException(e.getMessage(), e);
 			throw dataEx;
 		} finally {
-			DataAccessUtility.closeConnection(connection);
+			try {
+				DataAccessUtility.closeConnection(connection);
+			} catch (SQLException e) {
+				DataAccessException dataEx = new DataAccessException(e.getMessage(), e);
+				throw dataEx;
+			}
 		}
 		return products;
 	}
 
 	@Override
-	public Product fetchById(Integer id) {
+	public Product fetchById(Integer id) throws DataAccessException {
 		Connection connection = null;
 		PreparedStatement statement = null;
 		ResultSet resultSet = null;
@@ -65,7 +71,7 @@ public class ProductDataAccess implements ProductDataAccessContract {
 			statement = connection.prepareStatement(
 					"select product_id,product_name,price,description,category_id from products where product_id=?");
 			statement.setInt(1, id);
-			
+
 			resultSet = statement.executeQuery();
 			while (resultSet.next()) {
 				product = new Product();
@@ -76,31 +82,39 @@ public class ProductDataAccess implements ProductDataAccessContract {
 				product.setCategoryId(resultSet.getInt("category_id"));
 			}
 		} catch (SQLException e) {
-
+			DataAccessException dataEx = new DataAccessException(e.getMessage(), e);
+			throw dataEx;
 		} catch (ClassNotFoundException e) {
-
+			DataAccessException dataEx = new DataAccessException(e.getMessage(), e);
+			throw dataEx;
 		} catch (Exception e) {
-			throw e;
+			DataAccessException dataEx = new DataAccessException(e.getMessage(), e);
+			throw dataEx;
 		} finally {
-			DataAccessUtility.closeConnection(connection);
+			try {
+				DataAccessUtility.closeConnection(connection);
+			} catch (SQLException e) {
+				DataAccessException dataEx = new DataAccessException(e.getMessage(), e);
+				throw dataEx;
+			}
 		}
 		return product;
 	}
 
 	@Override
-	public Boolean insert(Product data) {
+	public Boolean insert(Product data) throws DataAccessException {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Boolean delete(Integer id) {
+	public Boolean delete(Integer id) throws DataAccessException {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Boolean update(Integer id, Product data) {
+	public Boolean update(Integer id, Product data) throws DataAccessException {
 		// TODO Auto-generated method stub
 		return null;
 	}
