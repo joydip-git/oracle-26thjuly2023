@@ -57,4 +57,6 @@ architecture:
 	additional functionality:
 	User should be able to search records matching to product name (fully or partially)
 
+	use JDBC
+
 
