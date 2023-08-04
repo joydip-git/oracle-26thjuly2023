@@ -128,6 +128,7 @@ public class App {
 
 				Method getNameMethodInfo = classInstanceWithPersonInfo.getMethod("getName");
 				Object nameValue = getNameMethodInfo.invoke(anilPerson);
+				
 				System.out.println("Name: " + nameValue);
 			} else {
 				System.out.println("no instance");

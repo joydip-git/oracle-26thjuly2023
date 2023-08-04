@@ -1,0 +1,39 @@
+create a Java s/w which helps you to write/log exception details in a file
+	
+	project/application-name: loggerapp
+	package-name: com.java.logger
+	a. create a class with a method to write/ log exception details of your application into a text file
+	this class should follow singleton pattern (i.e. only one instance of this will be created in entrie application)
+	b. create a class with a method to write/ log exception details of your application into a database table
+	this class also should follow singleton pattern (i.e. only one instance of this will be created in entrie application)
+
+	Note: both the classes should have same method for writing
+
+	details of exceptions to be written in file and in a database table:
+	a. exception class name, 
+	b. exception message, 
+	c. type of severity of the exception (minor, major, critical), 
+	d. the name of the class where exception occurred, 
+	e. the name of the method where exception has occurred, 
+	f. date and time when that exception occurred
+
+	project/application-name: ioccontainerapp
+	package-name: com.java.ioccontainer
+	this application will contain a dependency injector class with singleton pattern
+	this class will have method to create instance of any class given the class metadata
+
+
+	project/application-name: clientapp
+	package-name: com.java.client
+	in this application whatever code you choose to write should provide exception handling
+	the exceptions now must be logged from this application
+	Use that logger classes to log the exception details in a file or database, depending on the user choice
+	the instance of any logger class should be created using dependency injection
+
+	CSV
+	1,name,message,major,App,main,..
+	2,name,message,major,App,main,..
+
+
+	
+	
