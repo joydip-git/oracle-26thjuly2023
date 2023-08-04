@@ -3,5 +3,27 @@
 	- in layered architecture application for exception wrapping and propagating (funnelling and tunneling technique)
 2. exception propagation in layered application
 
-3. reflection
+3. reflection:
+
+	mechanism to examine any type during runtime or we can modify the bevahior of the type during runtime
+
+	Class: java.lang
+	provides several methods to extract metadata (of type, the members of the type), create instance etc.
+
+	Field, Parameter, Method, Constructor: java.lang.reflect 
+
+	what you can do using Reflection?
+		extract information about data type(s)
+		create instance of the class on the fly (dynamically) using that extracted metadata
+		call method(s) of the class using extracted metadata of the method(s)
+
+	Obtain any type Information:
+		Class c = Class.forName("Person");
+		
+		Person instance  = new Person();
+		Class c = instance.getClass();
+
+		Class c = Person.class;
 4. junit
+
+	
