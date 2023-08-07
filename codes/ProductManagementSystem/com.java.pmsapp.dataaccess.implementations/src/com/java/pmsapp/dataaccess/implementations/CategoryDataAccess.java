@@ -5,7 +5,11 @@ import java.util.List;
 import com.java.pmsapp.dataaccess.contracts.DataAccess;
 import com.java.pmsapp.entities.Category;
 
-public class CategoryDataAccess implements DataAccess<Category, Integer>{
+public class CategoryDataAccess implements DataAccess<Category, Integer> {
+
+	public CategoryDataAccess() {
+
+	}
 
 	@Override
 	public List<Category> fetchAll() {

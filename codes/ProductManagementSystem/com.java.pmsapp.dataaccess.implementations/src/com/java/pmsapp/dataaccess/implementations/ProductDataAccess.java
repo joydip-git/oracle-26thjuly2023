@@ -17,6 +17,9 @@ import com.java.pmsapp.dataaccess.abstractions.*;
 
 public class ProductDataAccess implements ProductDataAccessContract {
 
+	public ProductDataAccess() {
+	}
+	
 	@Override
 	public List<Product> fetchAll() throws DataAccessException {
 		Connection connection = null;

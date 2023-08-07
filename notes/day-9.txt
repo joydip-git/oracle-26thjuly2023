@@ -1,0 +1,80 @@
+DI:
+class Injector<Tcontract,TImpl extends Tcontract>{ 
+	public Tcontract createInstance(Class<TImpl> classInfo, Object dependencyObject){
+		if(dependencyObject!=null){
+			return classInfo.getDeclaredConstrucor(dependencyObject.getClass()).newInstance(dependencyObject);
+		}else{
+			//return classInfo.newInstance();	
+			return classInfo.getDeclaredConstructor().newInstance();
+		}
+	}
+}
+
+
+Injector<DataAccess<Product>,ProductDataAccess> daoInjector = Injector.getInjector();
+DataAccess<Product> productDao = daoInjector.createInstance(ProductDataAccess.class, null);
+
+Injector<BusinessComponent<Product>,ProductBusinessComponent> businessInjector = Injector.getInjector();
+businessInjector.createInstance(ProductBusinessComponent.class, productDao);	
+
+BE:
+class Product{}
+
+DAL:
+interface DataAccess<T>{
+}
+class ProductDataAccess implements DataAccess<Product>{
+	public ProductDataAccess(){}
+}
+class CategoryDataAccess implements DataAccess<Category>{
+	public CategoryDataAccess(){}
+}
+
+BL:
+interface BusinessComponent<T>{
+}
+class ProductBusinessComponent implements BusinessComponent<Product>{
+	private DataAccess<Product> productDao;
+	
+	public ProductBusinessComponent(){
+		
+	}
+	public ProductBusinessComponent(DataAccess<Product> _productDao){
+		productDao = _productDao;
+	}
+
+}
+class CategoryBusinessComponent implements BusinessComponent<Category>{
+	private DataAccess<Category> categoryDao;
+	
+	public CategoryBusinessComponent(DataAccess<Category> _categoryDao){
+		categoryDao = _categoryDao;
+	}
+
+}
+
+
+UI:
+main(){
+	
+	Injector<DataAccess<Product>,ProductDataAccess> daoInjector = Injector.getInjector();
+	DataAccess<Product> productDao = daoInjector.createInstance(ProductDataAccess.class);
+
+	Injector<BusinessComponent<Product>,ProductBusinessComponent> businessInjector = Injector.getInjector();
+	businessInjector.createInstance(ProductBusinessComponent.class, productDao);	
+
+	
+}
+
+
+
+FACADE:
+interface ServiceContract{
+}
+class PmsService implements ServiceContract{
+}
+
+
+
+
+
