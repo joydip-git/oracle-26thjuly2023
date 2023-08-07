@@ -92,6 +92,13 @@ URL:
 
 http://joydip.com:8080/pmsapp/
 
+JSON: JavaScript Object Notation
+Java API for XML Web Service (JAX-WS)
+
+wsdl: web service description language
+
+proxy class => representing the original service class
+
 
 
 

@@ -2,4 +2,10 @@
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="javax.servlet.annotation.WebServlet"/>
 <fullyQualifiedTypeName name="javax.servlet.http.HttpServlet"/>
+<fullyQualifiedTypeName name="javax.jws.WebService"/>
+<fullyQualifiedTypeName name="javax.jws.WebMethod"/>
+<fullyQualifiedTypeName name="com.java.helloworldserviceapp.services.HelloWorld"/>
+<fullyQualifiedTypeName name="javax.xml.ws.Endpoint"/>
+<fullyQualifiedTypeName name="com.java.clientapp.servicedescription.HelloWorldService"/>
+<fullyQualifiedTypeName name="com.java.clientapp.servicedescription.HelloWorld"/>
 </qualifiedTypeNameHistroy>
