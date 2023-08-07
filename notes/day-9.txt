@@ -75,6 +75,34 @@ class PmsService implements ServiceContract{
 }
 
 
+J2EE: Java Enterprise Edition or Jakarta EE
+      At the top of SE, an extra set if features and libraries (JARs) for ctreating enterprise application, such as
+	- distributed application
+	- web services etc.
+
+a. create web application
+b. create an web service
+c. create enterprise services
+
+URL:
+1. protocol scheme (http, https, ftp etc.)
+2. server-name (domain) joydip.com/google.com/abcd.org/xyz.net/amazon.in
+3. port number: 8080 (0-65535)
+4. object URI (Uniform resource identifier) pmsapp/index.html
+
+http://joydip.com:8080/pmsapp/
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
