@@ -1,0 +1,14 @@
+1st Eclipse:
+	Service workspace:
+Service application:
+1. create a document style (NOT RPC style) web service with methods -
+	to add two numbers: method returns the added value and the method accepts two arguments of type integer
+	to subtract two numbers: method returns the subtracted value and the method accepts two arguments of type integer
+2. create a service listener to host the service
+3. run the service
+
+2nd Eclipse:
+	client workspace:
+client application:
+1. use wsimport to add reference to the service
+2. from main method call those two service methods
