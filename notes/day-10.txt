@@ -1,0 +1,154 @@
+Servlet class => 
+	a. implements the interface: Servlet
+	b. extends the base class: HttpServlet
+
+JSP-Servlet
+
+Java API for XML Web Services (JAX-WS) application:
+
+	type of web application
+	a reusable piece of code hosted in separate process (may be in same machine or different machine), whose methods can be requested over the network/web
+
+
+serialization: persisting the data into a different format
+	Java data -> XML/JSON/SOAP/Binary/Custom
+
+SOAP XML Web Services:
+
+Services:
+	Web Services
+	Enterprise Service application
+	RESTful Services
+
+
+class Service{
+	private List<Person> people = new ArrayList<Person>();
+	public Service(){
+		people.add(new Person(1,"anil"));
+		people.add(new Person(2,"sunil"));
+		people.add(new Person(3,"joydip"));
+	}
+
+	List<Person> getRecords(){
+		return people;
+	}
+	Person getRecord(int id){
+		return people.stream().filter(p->p.id==id).first();
+	}
+}
+
+=> Serialization
+	<?xml version="1.0" standalone="yes">
+	<soap:envelope>
+		<soap:address></soap:addres>
+		<soap:body>
+			<people>
+				<person>
+				<id>1</id>
+				<name>anil</name>
+				</person>
+				<person>
+				<id>2</id>
+				<name>sunil</name>
+				</person>
+				<person>
+				<id>3</id>
+				<name>joydip</name>
+				</person>
+			</people>
+		<soap:body>
+	</soap>
+
+
+	<?xml version="1.0" standalone="yes">
+		<person>
+			<id>1</id>
+			<name>anil</name>
+		</person>
+Client:
+	Deserialization
+	XML => List<Person>
+
+	XML => Person
+
+	var id = 1;
+	Serialization:
+		=> <?xml version="1.0" standalone="yes">
+		   <input>1</input>
+
+
+client <=> server
+service consumer <=> service provider
+
+service provider exposes a service and its functionalities (through a WSDL file)
+service provider exposes an URL for the service metadata exchange and service methods to be called
+
+service consumer has to send a request to a listener for the metadata or information about the hosted service
+service listener will share the metadata of the service with the service consumer through WSDL and other files
+service consumer then, based on that metadata, will now be able to send q request to call a method from service class
+
+1. never share the language/technology specific data type
+2. always serialize the data in XML/JSON etc. format
+3. encode the data before it is sent
+4. use extra protocols along with HTTP/FTP etc. to secure data, proviode trsnaction etc.
+
+Web Service:
+	RPC style:
+		use method name and parameters to generate XML structure for message
+		service will be hard to be validated against a schema
+	Document style
+		use the method name but not the exact parameter data type for message
+		service can be validated against a schema
+	
+<?xml version="1.0">
+<xmlns:schema="...">
+<records>
+	<person>
+		<id>1</id>
+		<name>anil</name>		
+	</person>
+</records>
+
+DTD => Document Type Definition
+<?xml version="1.0">
+<!DTD>
+
+
+XSD =>
+	XML Schema Document
+<?xml....>
+<schema>
+</schema>
+
+ObjectFactorty.createGetMessage()
+//GetMessage getMessage = new GetMessage();
+//return getMessage;
+
+getMessage.setArg0("joydip");
+
+
+<?xml...>
+<soap:body>
+<getMessage>
+	Joydip
+</getMessage>
+</soap:body>
+
+GetMessageResponse getMessageResponse = new GetMessageResponse("Welcome Joydip");
+<?xml...>
+<soap:body>
+<getMessageResponse>
+	Welcome Joydip
+</getMessageResponse>
+</soap:body>
+
+
+JAX-WS: Java API for XML Web Services
+JAX-RS: Java API for XML (or JSON) RESTful Service
+
+
+	
+	
+	
+
+	
