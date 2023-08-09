@@ -45,7 +45,7 @@ entity class:
 class Order { orderid, orderdate, amount,....}
 
 Service class:
-//http://localhost:3456/ws/orderservice/orders
+//http://localhost:9564/rs/orderservice/orders
 public class OrderService {
 	public Messenger() {
 		System.out.println("Messenger instance created");
@@ -76,7 +76,7 @@ Mapping:
 	Map every HTTP request from client to a method of service class
 		- method of HTTP
 		- URL pattern	
-
+http://localhost:3456/ws/orderservice/orders?id={id}
 
 URL						       		METHOD	     REQ-DATA	        SERVICE METHOD
 http://localhost:3456/ws/orderservice/orders			GET		NA		   getOrders
@@ -125,7 +125,48 @@ XML:
 	<orderamount>....</..>
 </order>
 
-GET, POST, DELETE, PUT, PATCH, OPTIONS etc.
+
+HTTP:
+	http://localhost:9564/rs/orderservice/orders
+	http://localhost:9494/HelloWorldRestServiceApp/rest/helloservice/records
+	1. Request:
+		a. verb: GET, POST, DELETE, PUT, PATCH, OPTIONS etc.
+		b. uri: "rs/orderservice/orders" ("HelloWorldRestServiceApp/rest/helloservice/records")
+		c. version: 1.1
+		d. header:
+			client browser type
+			format supported by client 
+			format of the message in the request body (application/text, application/json, application/xml. application/HTML etc.)
+			caching strategies
+		e. body		
+
+	2. response:
+		a. header:
+			Content-Type: application/json
+			Content-Length: 73
+			Date: Wed, 09 Aug 2023 06:32:57 GMT
+			Keep-Alive: timeout=20
+			Connection: keep-alive
+		b. body: [{"id":1,"name":"Anil"},{"id":2,"name":"Sunil"},{"id":3,"name":"Joydip"}]
+		c. version: HTTP/1.1
+		d. code: 200 (OK)
+
+		403 (forbidden), 500 (internal server), 201 (created),.....
+
+
+	client => server (independent)
+	each request is treated independently
+	server does not maintain any client state
+
+
+jax-rs
+java-rest-services
+
+model-binding
+mapping the data to a model type and constructing an object based on that data
+		
+
+
 
 
 
