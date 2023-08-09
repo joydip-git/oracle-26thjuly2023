@@ -1,0 +1,132 @@
+Java Web Service
+Java RESTful services
+
+Transport level security
+Message security
+
+1. service provider
+	- should host a service (class with useful methods)
+	- expose the service to the outside world using some URL for the endpoint for the service
+	- will be respnosible for serialization of data before sending the response and desrializing the input from client
+	- will be responsible for invoking the requested method from the service class and pass parameters to the method
+	- will be responsible for encoding the response before sending the same to the client or decoding the request coming from the client
+	- will provide security to the response to be sent to the client and that is done by encrypting or hashing or creating digital signature for the message
+	- it will decide which type of encryption or hashing to be used and client also has to use the same in order to sent any request with data to the server
+	- it will share all information associated to the service with the client
+	Note: in case WS, the information is/are shared through a WSDL file mainly (and some other files like .class file, .java file in case of Java client application)
+
+2. Service consumer:
+	- has to get all information about service (the methods, the protocol, the URL, the encoding format, the serialization format, the security aspect etc.)
+	- has to send a request to the server with information about the service method to be called and any parameters that are required for the method
+	Note: in case of WS, the consumer will first create an instance of proxy class and use port to send request to the server (for method calls)
+
+Hosting the service:
+	a. create your won executable appalication to host (custom hosting)
+	b. use some server to host the service (Apache Tomcat/IIS)
+	c. use some windows service to host the service (Windows Server machine)
+	
+
+
+data => hash => alphanumeric value (2^64) 
+hashed data => encryption => alphanumeric value (2^64)
+
+
+RESTful: REpresentational State Transfer
+
+State => state of an object (attributes and their values)
+"orderid":1, "orderdare":1/1/2023, "orderamount":1000
+
+Transfer: HTTP
+HTTP=> stateless protocol as it can't help you maintain the state of any data, since the channel associated with HTTP is destroyed every time a request is sent from client to server or a response is sent from server to client
+
+Service Provider:
+
+entity class: 
+class Order { orderid, orderdate, amount,....}
+
+Service class:
+//http://localhost:3456/ws/orderservice/orders
+public class OrderService {
+	public Messenger() {
+		System.out.println("Messenger instance created");
+	}
+	//baseurl/{id} (GET)
+	public Order getOrder(int id) {
+		return ..;
+	}
+	//baseurl (GET)
+	public List<Order> getOrders() {
+		return 
+	}
+	//baseurl/add (POST)
+	public boolean addOrder(Order order) {
+		return ...;
+	}
+	//baseurl/update/{id} (PUT)
+	public boolean updateOrder(Order order, int id) {
+		return ...;
+	}
+	//baseurl/{id} (DELETE)
+	public boolean deleteOrder(int id) {
+		return ...;
+	}
+}
+
+Mapping:
+	Map every HTTP request from client to a method of service class
+		- method of HTTP
+		- URL pattern	
+
+
+URL						       		METHOD	     REQ-DATA	        SERVICE METHOD
+http://localhost:3456/ws/orderservice/orders			GET		NA		   getOrders
+http://localhost:3456/ws/orderservice/orders/{id}		GET		id		   getOrder
+http://localhost:3456/ws/orderservice/orders/{id}		DELETE		id		   deleteOrder
+http://localhost:3456/ws/orderservice/orders/update/{id}	PUT		id, order data	   updateOrder
+http://localhost:3456/ws/orderservice/orders/add		POST		order data	   addOrder
+
+Service Listener or host of the service
+	IIS/Tomcat etc.
+	cutsom host
+
+Service Consumer:
+ - need to send request using the URLs as exposed by the service provider and pass any data required 
+		- either as request parameter (route parameter)
+		- or as part of request body
+
+class OrderInfo{
+	orderid, orderdate, amount,....
+}
+
+get a record
+http://localhost:3456/ws/orderservice/orders/1 GET
+XML:
+<?xml....>
+<order>
+	<orderid>1</...>
+	<orderdate>...</..>
+	<orderamount>....</..>
+</order>
+
+JSON:
+{"orderid":1, "orderdate":"", "orderamount":1000}
+
+add a record:
+http://localhost:3456/ws/orderservice/orders/add (POST)
+{"orderid":1, "orderdate":"", "orderamount":1000}
+
+or
+
+XML:
+<?xml....>
+<order>
+	<orderid>1</...>
+	<orderdate>...</..>
+	<orderamount>....</..>
+</order>
+
+GET, POST, DELETE, PUT, PATCH, OPTIONS etc.
+
+
+
+

@@ -12,7 +12,7 @@ public class Client {
 		System.out.println("client app wants to interact with the service");
 		MessengerService messengerClient = new MessengerService();
 		Messenger messengerProxy = messengerClient.getMessengerPort();
-		String message = messengerProxy.getMessage("joydip");
+		String message = messengerProxy.getWelcomeMessage("joydip");
 		System.out.println(message);
 		
 		System.out.println("press any key to terminate client...");

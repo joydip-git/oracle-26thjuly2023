@@ -5,8 +5,10 @@ import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebResult;
 import javax.jws.WebService;
-import javax.jws.soap.SOAPBinding;
+import javax.xml.bind.annotation.XmlSeeAlso;
 import javax.xml.ws.Action;
+import javax.xml.ws.RequestWrapper;
+import javax.xml.ws.ResponseWrapper;
 
 
 /**
@@ -16,7 +18,9 @@ import javax.xml.ws.Action;
  * 
  */
 @WebService(name = "Messenger", targetNamespace = "http://services.java.com/")
-@SOAPBinding(style = SOAPBinding.Style.RPC)
+@XmlSeeAlso({
+    ObjectFactory.class
+})
 public interface Messenger {
 
 
@@ -27,10 +31,12 @@ public interface Messenger {
      *     returns java.lang.String
      */
     @WebMethod
-    @WebResult(partName = "return")
-    @Action(input = "http://services.java.com/Messenger/getMessageRequest", output = "http://services.java.com/Messenger/getMessageResponse")
-    public String getMessage(
-        @WebParam(name = "arg0", partName = "arg0")
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getWelcomeMessage", targetNamespace = "http://services.java.com/", className = "com.java.servicedescription.GetWelcomeMessage")
+    @ResponseWrapper(localName = "getWelcomeMessageResponse", targetNamespace = "http://services.java.com/", className = "com.java.servicedescription.GetWelcomeMessageResponse")
+    @Action(input = "http://services.java.com/Messenger/getWelcomeMessageRequest", output = "http://services.java.com/Messenger/getWelcomeMessageResponse")
+    public String getWelcomeMessage(
+        @WebParam(name = "arg0", targetNamespace = "")
         String arg0);
 
 }

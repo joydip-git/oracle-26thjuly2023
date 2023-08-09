@@ -25,7 +25,7 @@ public class Messenger {
 	}
 
 	@WebMethod
-	public String getMessage(String name) {
+	public String getWelcomeMessage(String name) {
 		return "Welcome " + name;
 	}
 }
