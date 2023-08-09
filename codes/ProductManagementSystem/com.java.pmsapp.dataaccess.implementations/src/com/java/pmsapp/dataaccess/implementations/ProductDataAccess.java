@@ -32,7 +32,7 @@ public class ProductDataAccess implements ProductDataAccessContract {
 			statement = DataAccessUtility.createJDBCStatement(connection);
 			resultSet = statement
 					.executeQuery("select product_id,product_name,price,description,category_id from products");
-			products = new ArrayList<Product>();
+			products = new ArrayList<Product>();			
 			while (resultSet.next()) {
 				Product p = new Product();
 				p.setProductId(resultSet.getInt("product_id"));
