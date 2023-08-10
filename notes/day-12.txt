@@ -1,0 +1,10 @@
+TDD: Test driven development
+BDD: behavior driven development
+
+unit testing
+integration testinh
+system testing
+
+unit testing => xUnit
+	Java   => JUnit
+	DotNet => NUnit
