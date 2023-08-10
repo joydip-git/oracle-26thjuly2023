@@ -5,11 +5,12 @@ public class Calculation {
 		return first + second;
 	}
 
-	public int multiply(int first, int second) throws Exception{
+	public int multiply(int first, int second) throws ArithmeticException{
 		if (first >= 0 && second >= 0)
 			return first * second;
 		else
-			throw new Exception("values can't be less than zero");
+			throw new ArithmeticException("values can't be less than zero");
+			//throw new Exception("values can't be less than zero");
 
 	}
 
