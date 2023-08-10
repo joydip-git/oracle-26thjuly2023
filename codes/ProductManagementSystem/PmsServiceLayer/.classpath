@@ -13,7 +13,6 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="lib" path="D:/oracle/oracle-26thjuly2023/codes/ProductManagementSystem/com.java.pmsapp.container.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/BusinessEntities"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/BusinessLayer"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/CustomExceptionsApp"/>

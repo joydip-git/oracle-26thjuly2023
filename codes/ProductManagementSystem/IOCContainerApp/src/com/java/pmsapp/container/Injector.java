@@ -40,7 +40,7 @@ public class Injector<TContract, TImplementation extends TContract> {
 	}
 }
 */
-public class Injector {
+public class Injector{
 	private static Injector _injector;
 
 	private Injector() {

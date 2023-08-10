@@ -8,13 +8,13 @@ import com.java.pmsapp.entities.Category;
 
 public class CategoryBusinessComponent implements BusinessComponent<Category, Integer> {
 
-	private BusinessComponent<Category, Integer> _categoryDao;
+	//private BusinessComponent<Category, Integer> _categoryDao;
 
 	public CategoryBusinessComponent() {
 	}
 
 	public CategoryBusinessComponent(BusinessComponent<Category, Integer> _categoryDao) {
-		this._categoryDao = _categoryDao;
+		//this._categoryDao = _categoryDao;
 	}
 
 	@Override

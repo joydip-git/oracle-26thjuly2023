@@ -11,50 +11,60 @@ import javax.ws.rs.core.MediaType;
 
 import com.java.pmsapp.businesslayer.abstractions.ProductBusinessComponentAbstraction;
 import com.java.pmsapp.businesslayer.implementations.ProductBusinessComponent;
-import com.java.pmsapp.container.Injector;
+//import com.java.pmsapp.container.Injector;
 import com.java.pmsapp.dataaccess.abstractions.ProductDataAccessContract;
 import com.java.pmsapp.dataaccess.implementations.ProductDataAccess;
 import com.java.pmsapp.entities.Product;
 import com.java.pmsapp.servicelayer.entities.ServiceResponse;
 
+//org.glassfish.jersey.client.inject;
+
 @Path("/products")
 public class ProductService {
 
-	/*
-	 * private static Injector<ProductDataAccessContract, ProductDataAccess>
-	 * daoInjectorInstance; private static
-	 * Injector<ProductBusinessComponentAbstraction, ProductBusinessComponent>
-	 * boInjectorInstance; private static ProductDataAccessContract dao; private
-	 * static ProductBusinessComponentAbstraction bo;
-	 */
-	private Injector injector;
+	// private static Injector<ProductDataAccessContract, ProductDataAccess>
+	// daoInjectorInstance;
+	// private static Injector<ProductBusinessComponentAbstraction,
+	// ProductBusinessComponent> boInjectorInstance;
+	// private static ProductDataAccessContract dao;
+	// private static ProductBusinessComponentAbstraction bo;
+
+	// private Injector injector;
 	private ProductDataAccessContract dao;
 	private ProductBusinessComponentAbstraction bo;
 
 	/*
-	 * static { try { daoInjectorInstance = Injector.getInjector(); dao =
-	 * (ProductDataAccessContract)
+	 * static { try { daoInjectorInstance = (Injector<ProductDataAccessContract,
+	 * ProductDataAccess>)Injector.getInjector(); dao = (ProductDataAccessContract)
 	 * daoInjectorInstance.createInstance(ProductDataAccess.class);
 	 * 
-	 * boInjectorInstance = Injector.getInjector(); bo =
+	 * boInjectorInstance = (Injector<ProductBusinessComponentAbstraction,
+	 * ProductBusinessComponent>)Injector.getInjector(); bo =
 	 * (ProductBusinessComponentAbstraction)
 	 * boInjectorInstance.createInstance(ProductBusinessComponent.class, dao,
 	 * ProductDataAccessContract.class); } catch (InstantiationException |
 	 * IllegalAccessException | IllegalArgumentException | InvocationTargetException
 	 * | NoSuchMethodException | SecurityException e) { e.printStackTrace(); } }
 	 */
-
 	public ProductService() throws Exception {
-		try {
-			injector = Injector.getInjector();
-			dao = (ProductDataAccessContract) injector.createInstance(ProductDataAccess.class);
 
-			bo = (ProductBusinessComponentAbstraction) injector.createInstance(ProductBusinessComponent.class,
-					dao, ProductDataAccessContract.class);
-		} catch (InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException
-				| NoSuchMethodException | SecurityException e) {
-			throw e;
+		System.out.println("inside product service ctor.....");
+		/*
+		 * try { // injector = Injector.getInjector(); dao = (ProductDataAccessContract)
+		 * injector.createInstance(ProductDataAccess.class);
+		 * 
+		 * bo = (ProductBusinessComponentAbstraction)
+		 * injector.createInstance(ProductBusinessComponent.class, dao,
+		 * ProductDataAccessContract.class); } catch (InstantiationException |
+		 * IllegalAccessException | IllegalArgumentException | InvocationTargetException
+		 * | NoSuchMethodException | SecurityException e) { throw e; }
+		 */
+
+		dao = new ProductDataAccess();
+		if (dao != null) {
+			System.out.println("not NULL");
 		}
+		bo = new ProductBusinessComponent(dao);
 	}
 
 	@GET

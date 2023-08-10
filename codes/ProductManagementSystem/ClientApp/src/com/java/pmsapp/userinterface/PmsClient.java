@@ -2,7 +2,6 @@ package com.java.pmsapp.userinterface;
 
 import java.util.List;
 
-import com.java.pmsapp.applicationexceptions.DataAccessException;
 import com.java.pmsapp.businesslayer.abstractions.ProductBusinessComponentAbstraction;
 import com.java.pmsapp.businesslayer.implementations.ProductBusinessComponent;
 import com.java.pmsapp.container.Injector;
