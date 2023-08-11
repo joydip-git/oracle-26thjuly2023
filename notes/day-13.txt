@@ -1,0 +1,46 @@
+HTML: Hyper Text Markup Language
+- create structure or design for any web page
+- used to create static web pages
+
+HTML pre-defined tags/elements => openning and closing tag
+
+types of HTML tags or elements:
+a. they way element content is displayed
+	i. inline elements
+	ii.block elements
+b. element conveys meaning or not: 
+	a. semantical element: conveys meaning but does not provide any display style for its content
+	table, select, article, header, footer, section, imgcaption etc.
+	b. non-semantical element: conveys no meaning but does provide any display style for its content
+	div, span, p, em, i etc.
+
+input elements
+
+head => information about HTML page
+body => place for design
+
+tag => can contain another tag (child) or textual content
+if any tag has none of them that tag is knon as empty or self-closing tag
+
+tags wil have one or more attributes
+attribute=> name-value pair
+
+meta, title => should be part of head tag
+script, style => can be part of both head and body or simultaneously in both
+
+script = > to link an external script file or to write the script code in the HTML file
+link => is popularly used to link external CSS file with the HTML file
+style => to write the CSS styles internally to HTML file
+
+CSS: Cascading Style Sheet
+- provide style for the web page or web page elements
+
+JavaScript:
+- language to write code for web page elements
+- executed as a result of some event
+- adds dynamism to the static web pages
+
+
+class Meta{
+	String charset;
+}
