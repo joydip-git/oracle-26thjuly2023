@@ -1,0 +1,47 @@
+/*
+        1. element selector
+        form,
+        p,
+        header {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: beige;
+            width: 400px;
+            margin-left: 300px;
+        }
+        
+        2. id selector
+        #firstPara,
+        #frmFirst {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: beige;
+            width: 400px;
+            margin-left: 300px;
+        }
+        */
+/*3. class selector */
+.common-style {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: beige;
+}
+
+.structure-style {
+  width: 400px;
+  margin-left: 300px;
+}
+a:hover {
+  color: blue;
+  font-size: larger;
+  background-color: blue;
+}
+a:visited {
+  color: yellowgreen;
+}
+p::first-line {
+  color: blue;
+}
+#firstPara::first-letter {
+  font-weight: bolder;
+}
+.common-style:hover {
+  font-size: larger;
+}

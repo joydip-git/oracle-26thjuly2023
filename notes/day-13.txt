@@ -35,6 +35,32 @@ style => to write the CSS styles internally to HTML file
 CSS: Cascading Style Sheet
 - provide style for the web page or web page elements
 
+	css-property-name:property-value
+	width:50px
+	background-color:"black";
+	margin-left:10px;
+	padding:2px;
+
+1. in-line style
+	- using style attribute of the element provide the styles
+
+2. out-line style
+	- using style tag in the same HTML file
+		- mention the element name(s) and then create the style [element selector]
+		- mention the id (s) of the element name(s) and then create the style [id selector]
+		- do not mention either the name(s) of element(s) or id(s) of element(s). rather create a "class" and then create the styles. apply the style later on the element(s) using class attribute [class selector]
+
+	(extrnal CSS)
+	- by creating a separate CSS file and then linking the CSS file with the HTML file
+		- mention the element name(s) and then create the style [element selector]
+		- mention the id (s) of the element name(s) and then create the style [id selector]
+		- do not mention either the name(s) of element(s) or id(s) of element(s). rather create a "class" and then create the styles. apply the style later on the element(s) using class attribute [class selector]
+
+state of the element:
+	not yet visited
+	hovering over the link
+	visited
+
 JavaScript:
 - language to write code for web page elements
 - executed as a result of some event
