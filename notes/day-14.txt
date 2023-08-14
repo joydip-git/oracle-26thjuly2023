@@ -1,0 +1,22 @@
+JavaScript:
+	a scripting language
+	a programming language
+	mainly a language for the web
+
+basics of JS:
+data types in JS
+	- String, number, bool and Object, undefined, NaN, NULL, Infinity
+operators
+control flow statements
+
+
+what is HTML DOM?
+	whenever an HTML document is loaded in the browser memory space to be displayed in the browser window, the browser itself (thorugh the help of HTML parser) creates a series of objects, representing the HTML tags (elements), which are organized in an hierarchical (tree-like) structure. that structure of collection of HTML tag or element related objects, is known as, HTML DOM.
+	these objects can be manipulated from JS code.
+
+what are browser DOM library and DOM APIs?
+	every browser has a rich set of library with lots of built-in functionalities which can be accessed from JS code in order to manipulate the HTML DOM elements (objects). The built-in set of functionalities of DOM library of browser is known as HTML DOM APIs.
+
+The browser DOM library APIs are accessible from JS code, and during the time of JS code execution, the DOM library supplies the definition of those APIs, used in JS code.
+
+			
