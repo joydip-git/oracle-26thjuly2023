@@ -1,22 +1,93 @@
-const numbers = [1, 4, 3, 5, 2, 8, 6, 0, 7, 9]
-//sort(), filter() etc. methods were introduced in ES6
-let sortedFilteredConvertedNumbers =
-    numbers
-        .sort((a, b) => a - b)
-        .filter((a) => a % 2 === 0)
-        .map((a) => a + ":" + (a * 5))
-console.log(sortedFilteredConvertedNumbers)
+//AJAX => asynchronous JavaScript and XML
 
-const numbersAgain = [1, 4, 3, 5, 2, 8, 6, 0, 7, 9]
-const found = numbersAgain.find((a) => a === 4)
-console.log(found)
-const foundIndex = numbersAgain.findIndex((a) => a === 4)
-console.log(foundIndex)
+//function to load data in SELECT element
+function loadProductNamesInSelect(products) {
+    const selectElement = document.getElementById('ddlProducts')
+    products
+        .forEach(
+            (p) => {
+                const option = document.createElement('option')
+                option.text = p.productName
+                option.value = p.productId
+                selectElement.options.add(option)
+            }
+        )
+}
+//function to load data in form element
+function displayData(productObject) {
+    document.getElementById('spanProduct').innerText = productObject.productName;
+    document.getElementById('txtName').value = productObject.productName;
+    document.getElementById('txtPrice').value = productObject.price.toString();
+    document.getElementById('txtDesc').value = productObject.description;
+    document.getElementById('txtId').value = productObject.productId.toString();
+    document.getElementById('txtCatId').value = productObject.categoryId.toString();
+}
+//function to get producy detail by a given id
+function getProductDataById() {
+    const req = new XMLHttpRequest()
+    //console.log("readystate value(initial): " + req.readyState)
 
-let personName = "Joydip"
-console.log(personName.toLocaleLowerCase())
-console.log(personName.toLocaleUpperCase())
-console.log(personName.toLocaleLowerCase().includes("j"))
-console.log(personName.toLocaleLowerCase().indexOf("d") === -1 ? 'absent' : personName.toLocaleLowerCase().indexOf("d"))
+    req.onreadystatechange = () => {
+        //console.log("readystate value: " + req.readyState)
+        if (req.status === 200 && req.readyState === 4) {
+            console.log(req.responseText)
+            const serviceResponse = JSON.parse(req.responseText)
+            console.log(serviceResponse)
+            displayData(serviceResponse.responseData)
+        }
+    }
 
-console.log("joydip".localeCompare("Joydip") === 0 ? 'same' : "joydip".localeCompare("Joydip") > 0 ? 'greater' : 'lesser');
+    const selectObject = document.getElementById('ddlProducts')
+    //'options' returns an array of all options present in the SELECT element
+    const allOptions = selectObject.options
+    //get the index of the selected option
+    const index = selectObject.selectedIndex
+    //now get the selected option object from the SELECT element
+    const selectedOption = allOptions[index]
+
+    // console.log(selectedOption.text)
+    // console.log(selectObject.value)
+
+    req.open('GET', 'http://localhost:8080/PmsApp/rest/products/get/' + selectedOption.value)
+    req.send()
+}
+
+//function to get all the products
+function getProducts() {
+    const req = new XMLHttpRequest()
+
+    req.onreadystatechange = () => {
+        if (req.status === 200 && req.readyState === 4) {
+            console.log(req.responseText)
+            const serviceResponseObject = JSON.parse(req.responseText)
+            console.log(serviceResponseObject)
+            loadProductNamesInSelect(serviceResponseObject.responseData)
+        }
+    }
+
+    req.open('GET', 'http://localhost:8080/PmsApp/rest/products/sort/2')
+    req.send()
+}
+/*
+const btnObject = document.getElementById('btnLoad')
+//if (btnObject !== undefined) {
+if (btnObject) {
+    btnObject.addEventListener('click', getProductsData)
+}
+*/
+
+//code which will be executed immediately afetr DOM content creation is completed and the page is loaded in the browser
+window
+    .addEventListener(
+        'DOMContentLoaded',
+        function () {
+            //part-1: link change event of the SELECT element with a function
+            //this function will be called back when the change event of the SELECT element is fired by changing the selection from SELECT element
+            document
+                .getElementById('ddlProducts')
+                .addEventListener('change', getProductDataById)
+
+            //fetch all the products from RESTful API server and load the product names and ids in the SELECT element
+            getProducts()
+        }
+    )

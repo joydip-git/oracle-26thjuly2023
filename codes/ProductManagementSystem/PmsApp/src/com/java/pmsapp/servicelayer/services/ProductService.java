@@ -53,7 +53,7 @@ public class ProductService {
 			List<Product> list = bo.getAll(choice);
 			return new ServiceResponse<List<Product>>("records found and sorted", 200, list);
 		} catch (Exception e) {
-			return new ServiceResponse<List<Product>>(e.getMessage(), 200, null);
+			return new ServiceResponse<List<Product>>(e.getMessage(), 500, null);
 		}
 	}
 
@@ -65,7 +65,7 @@ public class ProductService {
 			Product p = bo.getById(id);
 			return new ServiceResponse<Product>("record found", 200, p);
 		} catch (Exception e) {
-			return new ServiceResponse<Product>(e.getMessage(), 200, null);
+			return new ServiceResponse<Product>(e.getMessage(), 500, null);
 		}
 	}
 }

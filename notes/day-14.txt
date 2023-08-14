@@ -40,6 +40,41 @@ The browser DOM library APIs are accessible from JS code, and during the time of
 
 
 objects and asynchronous method call in JS
-ajax
+ajax:
+	XMLHttpRequest helps you send asynchronous rqeust to backend server application and returns the response
+
+	state of XMLHttpRequest object: 
+	property: readystate
+	values: 
+	0 => object created
+	1 => request send
+	2 => request has been received by server
+	3 => request is being processed
+	4 => request processed and response is received
+
+	every time the readystate value changes from 0->1, 1->2, 2->3, 3->4 an event of XMLHttpRequest objects gets fired: "readystatechange"
+	so, the XMLHttpRequest object provides a property "onreadystatechange", so that you can pass any function and that function will be called back whenever that event occurs
+
+	fetch response:
+		responseText
+		responseXML
+
+"{
+	"mesage":"record found",
+	"responseData":{
+		"categoryId":1,
+		"description":"book by paul cohelo",
+		"price":399.74,
+		"productId":1,
+		"productName":"the alchemist"
+	},
+	"statusCode":200
+}"
+		
+
+	
+	
+
+
 
 			

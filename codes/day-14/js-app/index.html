@@ -6,14 +6,65 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JS Introduction</title>
+    <link rel="stylesheet" href="./styles/theme.css">
+    <link rel="stylesheet" href="./styles/app.css">
 </head>
 
 <body>
-    <h2>Welcome to JS </h2>
+
+    <div class="container margin-style">
+        <h2 class="text-bold"> Display Product Information:</h2>
+        <br>
+        <div class="form-group">
+            <div>
+                <label for="ddlProducts" class="form-label mt-4">Select a Product: &nbsp;</label>
+                <select name="" id="ddlProducts" class="form-select">
+                    <option value="-1" selected disabled>--select--</option>
+                </select>
+            </div>
+        </div>
+        <!-- <button type="button" id="btnLoad">
+        Load Data
+    </button> -->
+        <br>
+        <fieldset>
+            <legend>
+                <b>
+                    Information of <span id="spanProduct"></span>#
+                </b>
+            </legend>
+            <form>
+
+                <div class="form-group">
+                    <label for="txtName" class="form-label mt-4">Name: &nbsp;</label>
+                    <input type="text" id="txtName" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="txtId" class="form-label mt-4">Id: &nbsp;</label>
+                    <input type="text" readonly id="txtId" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="txtPrice" class="form-label mt-4">Price: &nbsp;</label>
+                    <input type="text" id="txtPrice" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="txtDesc" class="form-label mt-4">Description: &nbsp;</label>
+                    <textarea id="txtDesc" class="form-control">
+            </textarea>
+                </div>
+                <div class="form-group">
+                    <label for="txtCatId" class="form-label mt-4">Category Id: &nbsp;</label>
+                    <input type="text" id="txtCatId" class="form-control">
+                </div>
+
+            </form>
+        </fieldset>
+    </div>
     <!-- <script src="./data-types.js"></script> -->
     <!-- <script src="./operators.js"></script> -->
     <!-- <script src="./array-basics.js"></script> -->
     <!-- <script src="./function-basics.js"></script> -->
+    <!-- <script src="./array-callback-functions.js"></script> -->
     <script src="./index.js"></script>
 </body>
 
