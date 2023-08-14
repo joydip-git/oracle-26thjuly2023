@@ -1,11 +1,30 @@
 JavaScript:
-	a scripting language
-	a programming language
+	a scripting language as well as, nowadys considered as, a programming language
 	mainly a language for the web
+	loosely typed language: no strict data typing. use "var" keyword to declare any variable.
+	it is object-based programming language, NOT object-oriented
+	It is a dynamic language, since JS code is loaded during runtime (when the HTML is loaded in the browser, that time JS is also loaded in the browser and supplied to JS egine for compilation and execution) and then it gets evaluted (compiled) and executed. As a result, during development time there is no compile-time checking of your JS code.
+
+
+All scripting languages follow a guideline as decided by an organization: ECMA
+the guideline is known as ECMAScript
+
+1994 -> JS was introduced
+ES2, ES3, ES4, ES5 etc. (older versions)
+
+Like re-invention of JS:
+2015 -> ES6
+2016-2023 -> ES7, ES8, ES9, ES10, ES11, ES12, ES13, ES14
 
 basics of JS:
 data types in JS
 	- String, number, bool and Object, undefined, NaN, NULL, Infinity
+	In JS, there is no character data type. hence, double quotes and single quotes are same
+	"a" or 'a' => string
+	In JS there is no separate data type for floating point and non-fractional (Integer) type values
+
+	a variable at any point of time can be assigned to any value. the data type of the variable is evaluated during runtime, NOT during compile time, since there is no separate compile time checking for JS. that's why JS is dynamic language.
+
 operators
 control flow statements
 
@@ -18,5 +37,9 @@ what are browser DOM library and DOM APIs?
 	every browser has a rich set of library with lots of built-in functionalities which can be accessed from JS code in order to manipulate the HTML DOM elements (objects). The built-in set of functionalities of DOM library of browser is known as HTML DOM APIs.
 
 The browser DOM library APIs are accessible from JS code, and during the time of JS code execution, the DOM library supplies the definition of those APIs, used in JS code.
+
+
+objects and asynchronous method call in JS
+ajax
 
 			
