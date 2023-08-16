@@ -44,23 +44,48 @@ public class ProductService {
 			throw e;
 		}
 	}
-	
+
 	@POST
 	@Path("/upload")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public ServiceResponse<Sample> uploadData(Sample sample){
+	public ServiceResponse<Sample> uploadData(Sample sample) {
+		Connection connection = null;
 		try {
 			System.out.println(sample.getProductImage());
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			Connection connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","system","Orcl2022");
-			PreparedStatement statement = connection.prepareStatement("insert into sampletable values(?,?,?");
-			statement.setInt(0, sample.getProductId());
-			statement.setString(1, sample.getProductName());
-			//statement.setBlob(1, );
-			return new ServiceResponse<Sample>("ok", 200, sample);
+			connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "system", "Orcl2022");
+			PreparedStatement statement = connection.prepareStatement("insert into sampletable values(?,?,?)");
+			
+			Blob blob = connection.createBlob();
+			blob.setBytes(1, sample.getProductImage().getBytes());
+			System.out.println(blob.getBinaryStream());
+			
+			statement.setInt(1, sample.getProductId());			
+			statement.setString(2, sample.getProductName());
+			statement.setBlob(3, blob);
+			Integer res = statement.executeUpdate();
+			if (res > 0)
+				return new ServiceResponse<Sample>("added", 201, sample);
+			else {
+				return new ServiceResponse<Sample>("could not added", 500, null);
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return new ServiceResponse<Sample>(e.getStackTrace().toString(), 500, null);
 		} catch (Exception e) {
-			return new ServiceResponse<Sample>(e.getMessage(), 500, null);
+			e.printStackTrace();
+			return new ServiceResponse<Sample>(e.getMessage(), 00, null);
+		} finally {
+			if (connection != null) {
+				try {
+					connection.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+					return new ServiceResponse<Sample>(e.getMessage(), 500, null);
+				}
+			}
 		}
 	}
 
