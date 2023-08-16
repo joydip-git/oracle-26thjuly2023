@@ -71,11 +71,9 @@ public class ProductService {
 				return new ServiceResponse<Sample>("could not added", 500, null);
 			}
 
-		} catch (SQLException e) {
-			e.printStackTrace();
-			return new ServiceResponse<Sample>(e.getStackTrace().toString(), 500, null);
+		} catch (SQLException e) {			
+			return new ServiceResponse<Sample>(e.getMessage(), 500, null);
 		} catch (Exception e) {
-			e.printStackTrace();
 			return new ServiceResponse<Sample>(e.getMessage(), 00, null);
 		} finally {
 			if (connection != null) {
