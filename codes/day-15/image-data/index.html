@@ -11,6 +11,14 @@
 <body>
     <form>
         <div>
+            <label for="txtId">Id:&nbsp;</label>
+            <input type="text" name="" id="txtId">
+        </div>
+        <div>
+            <label for="txtName">Name:&nbsp;</label>
+            <input type="text" name="" id="txtName">
+        </div>
+        <div>
             <label for="imgInput">Image:&nbsp;</label>
             <input type="file" name="" id="imgInput">
         </div>
@@ -18,6 +26,26 @@
             <input type="button" value="Upload" id="btnUpload">
         </div>
     </form>
+    <br>
+    <br>
+    <button type="button" id="btnLoad">Load Data</button>
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Image</th>
+            </tr>
+        </thead>
+        <tbody id="tblBody">
+            <!-- <tr>
+                <td></td>
+                <td></td>
+                <td><img src="" alt=""></td>
+            </tr> -->
+        </tbody>
+    </table>
+
     <script src="./index.js"></script>
 </body>
 

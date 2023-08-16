@@ -1,12 +1,17 @@
 package com.java.pmsapp.servicelayer.services;
 
+import java.io.BufferedReader;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ws.rs.Consumes;
@@ -59,7 +64,7 @@ public class ProductService {
 			
 			Blob blob = connection.createBlob();
 			blob.setBytes(1, sample.getProductImage().getBytes());
-			System.out.println(blob.getBinaryStream());
+			//System.out.println(blob.getBinaryStream());
 			
 			statement.setInt(1, sample.getProductId());			
 			statement.setString(2, sample.getProductName());
@@ -87,6 +92,50 @@ public class ProductService {
 		}
 	}
 
+	@GET
+	@Path("/uploadedfiles")
+	@Produces(MediaType.APPLICATION_JSON)
+	public ServiceResponse<List<Sample>> fetchUploadedProducts(){
+		Connection connection = null;
+		List<Sample> samples = null;
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "system", "Orcl2022");
+			Statement statement = connection.createStatement();
+			ResultSet data = statement.executeQuery("select * from sampletable");
+			samples = new ArrayList<Sample>();
+			while(data.next()) {
+				Sample sample = new Sample();
+				sample.setProductId(data.getInt("product_id"));				
+				sample.setProductName(data.getString("product_name"));
+				
+				StringBuffer buf = new StringBuffer();
+				String temp = null;
+				BufferedReader reader = new BufferedReader(new InputStreamReader(data.getBlob("product_image").getBinaryStream()));
+				while((temp = reader.readLine())!=null) {
+					buf.append(temp);
+				}
+				System.out.println(buf.toString());
+				sample.setProductImage(buf.toString());
+				samples.add(sample);
+			}
+			return new ServiceResponse<List<Sample>>("records found", 200, samples);
+
+		} catch (SQLException e) {			
+			return new ServiceResponse<List<Sample>>(e.getMessage(), 500, null);
+		} catch (Exception e) {
+			return new ServiceResponse<List<Sample>>(e.getMessage(), 500, null);
+		} finally {
+			if (connection != null) {
+				try {
+					connection.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+					return new ServiceResponse<List<Sample>>(e.getMessage(), 500, null);
+				}
+			}
+		}
+	}
 	@GET
 	@Path("")
 	@Produces(MediaType.APPLICATION_JSON)
