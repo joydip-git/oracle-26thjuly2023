@@ -9,6 +9,9 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import com.java.spingbootdemo.springbootrest.entities.*;
+import com.java.springbootdemo.springbootrest.businesslayer.BusinessComponent;
+import com.java.springbootdemo.springbootrest.businesslayer.ProductBusinessComponent;
 
 @Configuration
 @ComponentScan("com.java.spingbootdemo.springbootrest")
@@ -31,5 +34,10 @@ public class AppConfig {
 		driverManagerDataSource.setPassword(environment.getProperty(PASSWORD));
 		driverManagerDataSource.setDriverClassName(environment.getProperty(DRIVER));
 		return driverManagerDataSource;
+	}
+	
+	@Bean
+	BusinessComponent<Product,Integer> businessComponent() {
+		return new ProductBusinessComponent();
 	}
 }

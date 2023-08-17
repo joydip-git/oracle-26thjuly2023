@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.java.spingbootdemo.springbootrest.entities.Product;
-import com.java.spingbootdemo.springbootrest.repository.ProductRepositoryImplementation;
+import com.java.springbootdemo.springbootrest.businesslayer.BusinessComponent;
 
 @CrossOrigin(origins = "*")
 @RestController
@@ -24,12 +24,14 @@ import com.java.spingbootdemo.springbootrest.repository.ProductRepositoryImpleme
 public class ProductController {
 
 	@Autowired
-	ProductRepositoryImplementation dao;
+	BusinessComponent<Product,Integer> bo;
+	// ProductRepositoryImplementation dao;
 
 	@GetMapping("/get/{id}")
 	public ResponseEntity<Product> getProduct(@PathVariable("id") int id) {
 		try {
-			Product p = dao.fetchById(id);
+			// Product p = dao.fetchById(id);
+			Product p = bo.getById(id);
 			return new ResponseEntity<Product>(p, HttpStatus.OK);
 		} catch (Exception e) {
 			return new ResponseEntity<Product>(HttpStatus.INTERNAL_SERVER_ERROR);
@@ -39,7 +41,8 @@ public class ProductController {
 	@GetMapping("/getall")
 	public ResponseEntity<List<Product>> getProducts() {
 		try {
-			List<Product> p = dao.fetchAll();
+			// List<Product> p = dao.fetchAll();
+			List<Product> p = bo.getAll();
 			if (p != null && p.size() > 0)
 				return new ResponseEntity<List<Product>>(p, HttpStatus.OK);
 			else
@@ -52,7 +55,8 @@ public class ProductController {
 	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<String> deleteProduct(@PathVariable("id") int id) {
 		try {
-			Boolean status = dao.delete(id);
+			// Boolean status = dao.delete(id);
+			Boolean status = bo.remove(id);
 			return status ? new ResponseEntity<String>("product with id#" + id + " deleted successfully", HttpStatus.OK)
 					: new ResponseEntity<String>("product with id#" + id + " was not deleted",
 							HttpStatus.EXPECTATION_FAILED);
@@ -64,7 +68,8 @@ public class ProductController {
 	@PostMapping("/add")
 	public ResponseEntity<String> add(@RequestBody Product p) {
 		try {
-			boolean status = dao.insert(p);
+			// boolean status = dao.insert(p);
+			boolean status = bo.add(p);
 			if (status) {
 				return new ResponseEntity<String>("Product was saved successfully", HttpStatus.CREATED);
 			} else {
@@ -78,7 +83,8 @@ public class ProductController {
 	@PutMapping("/update/{id}")
 	public ResponseEntity<String> updateProduct(@RequestBody Product p, @PathVariable("id") int id) {
 		try {
-			boolean status = dao.update(id, p);
+			// boolean status = dao.update(id, p);
+			boolean status = bo.modify(id, p);
 			if (status) {
 				return new ResponseEntity<String>("Product was updated successfully", HttpStatus.OK);
 			} else {

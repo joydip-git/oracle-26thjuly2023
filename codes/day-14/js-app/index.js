@@ -33,7 +33,8 @@ function getProductDataById() {
             console.log(req.responseText)
             const serviceResponse = JSON.parse(req.responseText)
             console.log(serviceResponse)
-            displayData(serviceResponse.responseData)
+            //displayData(serviceResponse.responseData)
+            displayData(serviceResponse)
         }
     }
 
@@ -48,7 +49,8 @@ function getProductDataById() {
     // console.log(selectedOption.text)
     // console.log(selectObject.value)
 
-    req.open('GET', 'http://localhost:8080/PmsApp/rest/products/get/' + selectedOption.value)
+    //req.open('GET', 'http://localhost:8080/PmsApp/rest/products/get/' + selectedOption.value)
+    req.open('GET', 'http://localhost:8080/rest/products/get/' + selectedOption.value)
     req.send()
 }
 
@@ -61,11 +63,13 @@ function getProducts() {
             console.log(req.responseText)
             const serviceResponseObject = JSON.parse(req.responseText)
             console.log(serviceResponseObject)
-            loadProductNamesInSelect(serviceResponseObject.responseData)
+            //loadProductNamesInSelect(serviceResponseObject.responseData)
+            loadProductNamesInSelect(serviceResponseObject)
         }
     }
 
-    req.open('GET', 'http://localhost:8080/PmsApp/rest/products/sort/2')
+    //req.open('GET', 'http://localhost:8080/PmsApp/rest/products/sort/2')
+    req.open('GET', 'http://localhost:8080/rest/products/getall')
     req.send()
 }
 /*
