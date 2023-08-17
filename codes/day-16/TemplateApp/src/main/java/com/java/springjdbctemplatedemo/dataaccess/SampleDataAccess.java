@@ -18,7 +18,7 @@ public class SampleDataAccess implements DataAccess {
 
 	@Autowired
 	public SampleDataAccess(DataSource dataSource) {
-		this.jdbcTemplate = new JdbcTemplate(dataSource);
+		this.jdbcTemplate = new JdbcTemplate(dataSource);		
 	}
 
 	public List<Sample> getRecords() throws Exception {

@@ -16,14 +16,14 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 public class AppConfig {
 
 	@Autowired
-	Environment environment;
+	public Environment environment;
 
 	public AppConfig() {
 		System.out.println("AppConfig instantiated");
 	}
 
 	@Bean
-	DataSource dataSource() {
+	public DataSource dataSource() {
 		DriverManagerDataSource managerDataSource = new DriverManagerDataSource();
 		managerDataSource.setDriverClassName(environment.getProperty("driver"));
 		managerDataSource.setUrl(environment.getProperty("url"));
