@@ -19,9 +19,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/rest/products")
-@CrossOrigin(origins = "*")
 public class ProductController {
 
 	private ProductDataAccessContract dao;
@@ -29,10 +29,12 @@ public class ProductController {
 	@Autowired
 	public ProductController(ProductDataAccessContract dao) {
 		this.dao = dao;
+		System.out.println("controller created");
 	}
 
 	@GetMapping("/getall")
 	public ResponseEntity<List<Product>> getAllProducts() {
+		System.out.println("get all");
 		try {
 			List<Product> list = dao.fetchAll();
 			return new ResponseEntity<List<Product>>(list, HttpStatus.OK);

@@ -20,6 +20,7 @@ public class ProductDataAccess implements ProductDataAccessContract {
 	@Autowired
 	public ProductDataAccess(DataSource dataSource) {
 		jdbcTemplate = new JdbcTemplate(dataSource);
+		System.out.println("DAO created");
 	}
 
 	public List<Product> fetchAll() throws DataAccessException {

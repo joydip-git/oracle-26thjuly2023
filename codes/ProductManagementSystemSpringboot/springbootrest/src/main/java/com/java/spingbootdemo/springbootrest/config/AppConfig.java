@@ -1,4 +1,4 @@
-package com.java.pmsapp.config;
+package com.java.spingbootdemo.springbootrest.config;
 
 import javax.sql.DataSource;
 
@@ -11,29 +11,25 @@ import org.springframework.core.env.Environment;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 @Configuration
-@ComponentScan("com.java.pmsapp")
+@ComponentScan("com.java.spingbootdemo.springbootrest")
 @PropertySource("classpath:database.properties")
 public class AppConfig {
 
 	@Autowired
 	Environment environment;
-
-	public AppConfig() {
-		System.out.println("config created");
-	}
-
+	
 	private final String DRIVER = "driver";
-	private final String URL = "url";
+	private final String URL= "url";
 	private final String USERNAME = "dbuser";
 	private final String PASSWORD = "dbpassword";
-
+	
 	@Bean
 	DataSource dataSource() {
-		DriverManagerDataSource manager = new DriverManagerDataSource();
-		manager.setDriverClassName(environment.getProperty(DRIVER));
-		manager.setUrl(environment.getProperty(URL));
-		manager.setUsername(environment.getProperty(USERNAME));
-		manager.setPassword(environment.getProperty(PASSWORD));
-		return manager;
+		DriverManagerDataSource driverManagerDataSource  = new DriverManagerDataSource();
+		driverManagerDataSource.setUrl(environment.getProperty(URL));
+		driverManagerDataSource.setUsername(environment.getProperty(USERNAME));
+		driverManagerDataSource.setPassword(environment.getProperty(PASSWORD));
+		driverManagerDataSource.setDriverClassName(environment.getProperty(DRIVER));
+		return driverManagerDataSource;
 	}
 }
