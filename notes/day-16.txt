@@ -1,0 +1,36 @@
+1. writing JDBC code too much
+	- loading the driver manually
+	- creating connection, statement, executing them and converting data from result set into entity manually
+
+	solution - let the low-level aspects be handled by something else, you just write the query and give it for execution
+2. using properties file - reading manually
+	solution - something will read the properties file and you do not need to mention the absolute path and will create an object for you with all the properties keys and values - will also load driver.....
+
+3. DI and IOC - jersey DI or custom DI
+4. authuentication and authorization
+5. data conversion
+
+Spring: another framework 
+
+	modules:
+		Data Access				Web 
+			- JDBC APIs			- web (RESTful - spring boot)
+			- ORM				- servlet
+			- OXM				- Struts
+			- JMS				
+			- Transactions
+			
+		AOP, Aspects, Instrumentation
+		core modules: core and beans => DI, context => EJB, JMS, Remoting, SpEL
+		Testing
+
+5. creating project without any PM s/w
+
+
+IoC Container:
+	a. creating objects of the class
+	b. configure the object
+	c. manage dependencies
+
+BeanFactory
+ApplicationContext
