@@ -24,19 +24,6 @@ function displayData(productObject) {
 }
 //function to get producy detail by a given id
 function getProductDataById() {
-    const req = new XMLHttpRequest()
-    //console.log("readystate value(initial): " + req.readyState)
-
-    req.onreadystatechange = () => {
-        //console.log("readystate value: " + req.readyState)
-        if (req.status === 200 && req.readyState === 4) {
-            console.log(req.responseText)
-            const serviceResponse = JSON.parse(req.responseText)
-            console.log(serviceResponse)
-            //displayData(serviceResponse.responseData)
-            displayData(serviceResponse)
-        }
-    }
 
     const selectObject = document.getElementById('ddlProducts')
     //'options' returns an array of all options present in the SELECT element
@@ -45,32 +32,66 @@ function getProductDataById() {
     const index = selectObject.selectedIndex
     //now get the selected option object from the SELECT element
     const selectedOption = allOptions[index]
+    sendAsyncRequest(
+        'GET',
+        `http://localhost:8080/PmsApp/rest/products/get/${selectedOption.value}`,
+        function (resp) {
+            displayData(resp.responseData)
+        }
+    )
+
+    //const req = new XMLHttpRequest()
+    //console.log("readystate value(initial): " + req.readyState)
+
+    // req.onreadystatechange = () => {
+    //     //console.log("readystate value: " + req.readyState)
+    //     if (req.status === 200 && req.readyState === 4) {
+    //         console.log(req.responseText)
+    //         const serviceResponse = JSON.parse(req.responseText)
+    //         console.log(serviceResponse)
+    //         //displayData(serviceResponse.responseData)
+    //         displayData(serviceResponse)
+    //     }
+    // }
+
+
 
     // console.log(selectedOption.text)
     // console.log(selectObject.value)
 
     //req.open('GET', 'http://localhost:8080/PmsApp/rest/products/get/' + selectedOption.value)
-    req.open('GET', 'http://localhost:8080/rest/products/get/' + selectedOption.value)
-    req.send()
+    //req.open('GET', 'http://localhost:8080/rest/products/get/' + selectedOption.value)
+    //req.send()
 }
 
 //function to get all the products
 function getProducts() {
-    const req = new XMLHttpRequest()
-
-    req.onreadystatechange = () => {
-        if (req.status === 200 && req.readyState === 4) {
-            console.log(req.responseText)
-            const serviceResponseObject = JSON.parse(req.responseText)
-            console.log(serviceResponseObject)
-            //loadProductNamesInSelect(serviceResponseObject.responseData)
-            loadProductNamesInSelect(serviceResponseObject)
+    sendAsyncRequest(
+        'GET',
+        'http://localhost:8080/PmsApp/rest/products/sort/2',
+        function (resp) {
+            loadProductNamesInSelect(resp.responseData)
         }
-    }
+    )
+    //const req = new XMLHttpRequest()
+
+    // req.onreadystatechange = () => {
+    //     if (req.status === 200 && req.readyState === 4) {
+    //         console.log(req.responseText)
+    //         const serviceResponseObject = JSON.parse(req.responseText)
+    //         console.log(serviceResponseObject)
+    //         //loadProductNamesInSelect(serviceResponseObject.responseData)
+    //         loadProductNamesInSelect(serviceResponseObject)
+    //         //localStorage.setItem("token",serviceResponseObject)
+    //     }
+    // }
 
     //req.open('GET', 'http://localhost:8080/PmsApp/rest/products/sort/2')
-    req.open('GET', 'http://localhost:8080/rest/products/getall')
-    req.send()
+    //req.open('GET', 'http://localhost:8080/rest/products/getall')
+    //const bearerToken = "Bearer " + localStorage.getItem("token")
+    //req.setRequestHeader("Authorization",bearerToken)
+    //req.send(JSON.stringify({username:"sjhgjhs", password:"", }))
+    //req.send()
 }
 /*
 const btnObject = document.getElementById('btnLoad')
